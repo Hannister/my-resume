@@ -1,0 +1,85 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&family=Quicksand:wght@300;400;500;600;700&display=swap');
+:root {
+  /* Colors */
+  --background-default: #FFD879;
+  --background-secondary: #ffffff;
+  --background-light: #ECECEC;
+  --background-lighter: #fafafa;
+  --background-dark: #585858;
+  --background-darker: #353535;
+
+  --primary-default: #4A566F;
+  --primary-dark: #1f2e45;
+  --primary-light: #BDE6EF;
+  --primary-lighter: #F2FAFC;
+
+  --error-default: #cc4867;
+  --error-dark: #960b3d;
+  --error-darker: #7D2138;
+  --error-light: #ff7a95;
+
+  --success-default: #3CAEA3;
+  --success-dark: #1B655E;
+  --success-light: #A8EEEB;
+  --success-lighter: #E7FFFE;
+
+  --selected-default: #7cbaf1;
+  --selected-dark: #1966bd;
+  --selected-darker: #1960be;
+  --selected-light: #b8dbff;
+
+  /* Text Color */
+  --text-color-default: #4A566F;
+  --text-color-p: #3D3D3D;
+  --text-color-welcome: #814F46;
+
+  /* Shadows */
+  --background-tertiary-shadow: 0 1px 3px 0 rgba(136, 136, 136, 0.5);
+}
+
+body {
+  background: var(--background-secondary);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+  //overflow-x: hidden;
+  height: 100%;
+}
+
+button{
+  font-family: 'Quicksand', sans-serif;
+  background-color: var(--error-default);
+  color: white;
+  padding: 10px 50px;
+  border-radius: 60px;
+  border: none;
+  box-shadow: var(--background-tertiary-shadow);
+  font-size: 30px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:focus{
+  outline: none;
+  background-color: var(--error-light);
+}
+button:focus{
+  outline: none;
+  background-color: var(--error-dark);
+}
+
+h1{
+  font-family: 'Patua One', cursive;
+
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
