@@ -1,5 +1,5 @@
 .wlcome-page-container{
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background: var(--background-default);
   overflow: hidden;
@@ -10,6 +10,38 @@
     transform: scale(0.80);
     position: relative;
 
+    .two-eyes{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      position: absolute;
+      top: 217px;
+      width: 183px;
+      left: 165px;
+
+        .eye {
+          position: relative;
+          display: inline-block;
+          border-radius: 50%;
+          height: 30px;
+          width: 30px;
+          background: white;
+        }
+        .color-eye{ /*pupil*/
+          position: absolute;
+          bottom: 7px;
+          right: 7px;
+          width: 7px;
+          height: 7px;
+          background: black;
+          border: solid 3px #457949;
+          border-radius: 50%;
+          content: " ";
+        }
+      }
+
+
+    }
 
     .quarter-circle{
       width: 555px;
@@ -41,7 +73,7 @@
       border-radius: 50%;
     }
   }
-}
+
 
 @keyframes spin{
   to {transform: rotate(405deg);}
