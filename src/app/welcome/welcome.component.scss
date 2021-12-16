@@ -1,0 +1,112 @@
+.wlcome-page-container{
+  width: 100%;
+  height: 100vh;
+  background: var(--background-default);
+  overflow: hidden;
+
+  .my-illustration{
+    margin-top: 50px;
+    //height: 100%;
+    transform: scale(0.80);
+    position: relative;
+
+
+    .quarter-circle{
+      width: 555px;
+      height: 555px;
+      border-radius: 50%;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      position: absolute;
+      top: -18px;
+      left: -20px;
+    }
+
+    .top-left{
+      border: 2px solid transparent;
+      border-left-color: var(--text-color-welcome);
+      transform: rotate(45deg);
+      animation: spin-back 20s infinite linear;
+    }
+    .bottom-right{
+      border: 2px solid transparent;
+      border-right-color: var(--text-color-welcome);
+      transform: rotate(45deg);
+      animation: spin 20s infinite linear;
+
+    }
+
+    .border-circle{
+      padding: 15px;
+      border-radius: 50%;
+    }
+  }
+}
+
+@keyframes spin{
+  to {transform: rotate(405deg);}
+}
+
+@keyframes spin-back{
+  to { transform: rotate(405deg); }
+}
+
+.lines-wrapper-left{
+
+  .two-lines-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 280px;
+    height: 16px;
+  }
+  .top-lines , .bottom-lines{
+
+    .first-line-bigger{
+      width: 240px;
+      margin-right: 10px;
+    }
+    .second-line-small{
+      width: 8px;
+    }
+  }
+
+  .bottom-lines{
+    transform: rotate(180deg);
+  }
+}
+
+.welcome-title{
+  font-size: 38px;
+  margin: 0 35px;
+  font-weight: 100;
+  letter-spacing: 2px;
+
+  .white-title{
+    color: white;
+    margin-left: 15px;
+  }
+
+}
+
+.welcome-btn{
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  button{
+    position: relative;
+  }
+
+  .btn-border{
+    background-color: var(--error-darker);
+    color:  var(--error-darker);
+    position: absolute;
+    top: 6px;
+  }
+}
+
+.little-higher{
+  position: relative;
+  top: -20px;
+}
