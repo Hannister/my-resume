@@ -15,32 +15,59 @@
       justify-content: space-around;
       align-items: center;
       position: absolute;
-      top: 217px;
-      width: 183px;
-      left: 165px;
+      top: 318px;
+      width: 290px;
+      left: 147px;
 
-        .eye {
-          position: relative;
-          display: inline-block;
-          border-radius: 50%;
-          height: 30px;
-          width: 30px;
-          background: white;
+
+      //.eye {
+        //  position: relative;
+        //  display: inline-block;
+        //  border-radius: 50%;
+        //  height: 30px;
+        //  width: 30px;
+        //  background: white;
+        //}
+        //.color-eye{ /*pupil*/
+        //  position: absolute;
+        //  bottom: 7px;
+        //  right: 7px;
+        //  width: 7px;
+        //  height: 7px;
+        //  background: black;
+        //  border: solid 3px #457949;
+        //  border-radius: 50%;
+        //  content: " ";
+        //}
+
+        .eye{
+          background-color:white;
+          position:absolute;
+          top:50%;
+          left:50%;
+          margin-top:-100px;
+          margin-left:-100px;
+          width:33px;
+          height:23px;
+          overflow:hidden;
+          border-radius:50%;
         }
-        .color-eye{ /*pupil*/
+        .pupil {
           position: absolute;
-          bottom: 7px;
-          right: 7px;
-          width: 7px;
-          height: 7px;
-          background: black;
-          border: solid 3px #457949;
+          background-color: black;
+          border: solid 4px #457949;
+          width: 8px;
+          height: 8px;
+          top: 50%;
+          left: 50%;
+          margin-top: -7px;
+          margin-left: -8px;
           border-radius: 50%;
-          content: " ";
+        }
+        .eye2{
+          margin-left:-4px;
         }
       }
-
-
     }
 
     .quarter-circle{
