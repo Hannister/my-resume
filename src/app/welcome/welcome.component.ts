@@ -1,4 +1,5 @@
 import {AfterViewInit, Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-welcome',
@@ -13,8 +14,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
   input: any;
   output: any;
 
-
-  constructor(private renderer: Renderer2) {
+  constructor(private renderer: Renderer2, private router: Router ) {
   }
 
   ngOnInit(): void {
@@ -83,23 +83,9 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
 
   }
 
-    //
-    // eyeMovement(event:MouseEvent){
-    //   this.moveOneEye(this.eyeDivLeft,event);
-    //   this.moveOneEye(this.eyeDivRight,event);
-    // }
-    //
-    // moveOneEye(divEye: any, event:MouseEvent){
-    //   let eye = divEye.nativeElement;
-    //   let x = (eye.getBoundingClientRect().left) + (eye.clientWidth/ 2);
-    //   let y = (eye.getBoundingClientRect().top) + (eye.clientHeight / 2);
-    //
-    //
-    //   let rad = Math.atan2(event.pageX - x, event.pageY - y);
-    //   let rot = (rad * (180 / Math.PI) * -1) + 180;
-    //
-    //   this.renderer.setStyle(divEye.nativeElement, 'transform', `rotate(${rot}deg)`);
-    // }
+  onBtnClick(){
+    this.router.navigateByUrl('/about-me');
+  }
 
 
   }

@@ -2,11 +2,9 @@
   width: 100vw;
   height: 100vh;
   background: var(--background-default);
-  overflow: hidden;
 
   .my-illustration{
     margin-top: 50px;
-    //height: 100%;
     transform: scale(0.80);
     position: relative;
 
@@ -18,27 +16,6 @@
       top: 318px;
       width: 290px;
       left: 147px;
-
-
-      //.eye {
-        //  position: relative;
-        //  display: inline-block;
-        //  border-radius: 50%;
-        //  height: 30px;
-        //  width: 30px;
-        //  background: white;
-        //}
-        //.color-eye{ /*pupil*/
-        //  position: absolute;
-        //  bottom: 7px;
-        //  right: 7px;
-        //  width: 7px;
-        //  height: 7px;
-        //  background: black;
-        //  border: solid 3px #457949;
-        //  border-radius: 50%;
-        //  content: " ";
-        //}
 
         .eye{
           background-color:white;
@@ -152,6 +129,9 @@
   display: flex;
   justify-content: center;
   position: relative;
+  transition: all .15s ease-in-out;
+
+
 
   button{
     position: relative;
@@ -163,6 +143,9 @@
     position: absolute;
     top: 6px;
   }
+}
+.welcome-btn:hover{
+  transform: scale(1.03);
 }
 
 .little-higher{

@@ -5,7 +5,7 @@ import {TrainComponent} from "./train/train.component";
 
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
-  {path: 'about-me', component: TrainComponent},
+  {path: 'about-me', component: TrainComponent, data: {animation: 'isRight'}},
   {path: '**', component: WelcomeComponent},
 
 ];
