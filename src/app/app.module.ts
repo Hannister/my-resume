@@ -10,12 +10,16 @@ import {MatRadioModule} from "@angular/material/radio";
 import {FormsModule} from "@angular/forms";
 import { WelcomeComponent } from './welcome/welcome.component';
 import { TrainComponent } from './train/train.component';
+import { IllustrationAndBubbleComponent } from './train/illustration-and-bubble/illustration-and-bubble.component';
+import { SubTitlesComponent } from './train/sub-titles/sub-titles.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    TrainComponent
+    TrainComponent,
+    IllustrationAndBubbleComponent,
+    SubTitlesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,32 @@
+.section-container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.my-illustration{
+  width: 25%;
+  height: 100%;
+}
+
+.talk-bubble{
+  background-image: url("../../../assets/bubble.png");
+  width: 70%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 30px;
+}
+
+
+.bubble-text{
+  width: 87%;
+  position: relative;
+  left: 8px;
+  font-size:0.8vw;
+  color: var(--text-color-default);
+}

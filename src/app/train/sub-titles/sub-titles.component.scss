@@ -1,0 +1,29 @@
+.title-container{
+  width: 100%;
+  justify-content: center;
+  margin-top: 80px;
+
+
+
+  .content{
+    width: 40%;
+    text-align: center;
+  }
+
+  .lines{
+    width: 30%;
+    justify-content: space-between;
+  }
+
+  .line{
+    border: solid 1px var(--primary-default);
+  }
+
+  .small-line{
+    width: 2%;
+  }
+  .large-line{
+    width: 95%;
+  }
+
+}

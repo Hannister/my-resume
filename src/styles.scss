@@ -79,9 +79,20 @@ button:hover{
 h1{
   font-family: 'Patua One', cursive;
   color: var(--text-color-welcome);
-
 }
 
+h2{
+  font-family: 'Patua One', cursive;
+  color: var(--text-color-default);
+  font-size: 60px;
+}
+
+h3{
+  font-family: 'Patua One', cursive;
+  color: var(--text-color-default);
+  font-size: 40px;
+  font-weight: 600;
+}
 
 .position-center-column{
   display: flex;
@@ -97,6 +108,7 @@ h1{
 .border-line-primary{
   border: solid 2px var(--primary-default);
 }
+
 
 .border-line-brown-secondary{
   border: solid 2px var(--text-color-welcome);

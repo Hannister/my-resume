@@ -1,4 +1,256 @@
-<div class="train-page">
-  <p>train works!</p>
+<div class="train-page-container">
+<h2 class="page-title">Welcome To My Resume</h2>
+  <app-illustration-and-bubble></app-illustration-and-bubble>
+  <app-sub-titles>Learning & Experience</app-sub-titles>
 
+  <div class="train-station">
+    <div class="train-rails">
+      <div class="all-train-raws">
+        <div class="first-raw">
+          <div class="platform-wrapper position-center-column">
+            <h4 class="platform-title">{{trainStation.platform[0].title}}</h4>
+            <p class="platform-subtitle">{{trainStation.platform[0].subTitle}}</p>
+            <div class="platform-illustration-wrapper"
+                 [ngStyle]="{background: 'url(' + trainStation.platform[0].scr + ')' ,backgroundSize: 'contain',
+                     backgroundRepeat:  'no-repeat', backgroundPosition: 'center'}">
+              <div class="platform-icons" *ngFor="let icons of trainStation.platform[0].iconsGroup">
+                <img [src]="icons.src">
+              </div>
+            </div>
+          </div>
+          <div class="platform-wrapper  position-center-column">
+            <h4 class="platform-title">{{trainStation.platform[1].title}}</h4>
+            <p class="platform-subtitle">{{trainStation.platform[1].subTitle}}</p>
+            <div class="platform-illustration-wrapper"
+                 [ngStyle]="{background: 'url(' + trainStation.platform[1].scr + ')' ,backgroundSize: 'contain' ,
+                     backgroundRepeat:  'no-repeat' , backgroundPosition: 'center'}">
+              <div class="platform-icons" *ngFor="let icons of trainStation.platform[1].iconsGroup">
+                <img [src]="icons.src">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="first-raw">
+          <div class="platform-wrapper position-center-column">
+            <h4 class="platform-title">{{trainStation.platform[0].title}}</h4>
+            <p class="platform-subtitle">{{trainStation.platform[0].subTitle}}</p>
+            <div class="platform-illustration-wrapper"
+                 [ngStyle]="{background: 'url(' + trainStation.platform[0].scr + ')' ,backgroundSize: 'contain',
+                     backgroundRepeat:  'no-repeat', backgroundPosition: 'center'}">
+              <div class="platform-icons" *ngFor="let icons of trainStation.platform[0].iconsGroup">
+                <img [src]="icons.src">
+              </div>
+            </div>
+          </div>
+          <div class="platform-wrapper  position-center-column">
+            <h4 class="platform-title">{{trainStation.platform[1].title}}</h4>
+            <p class="platform-subtitle">{{trainStation.platform[1].subTitle}}</p>
+            <div class="platform-illustration-wrapper"
+                 [ngStyle]="{background: 'url(' + trainStation.platform[1].scr + ')' ,backgroundSize: 'contain' ,
+                     backgroundRepeat:  'no-repeat' , backgroundPosition: 'center'}">
+              <div class="platform-icons" *ngFor="let icons of trainStation.platform[1].iconsGroup">
+                <img [src]="icons.src">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="first-raw">
+          <div class="platform-wrapper position-center-column">
+            <h4 class="platform-title">{{trainStation.platform[0].title}}</h4>
+            <p class="platform-subtitle">{{trainStation.platform[0].subTitle}}</p>
+            <div class="platform-illustration-wrapper"
+                 [ngStyle]="{background: 'url(' + trainStation.platform[0].scr + ')' ,backgroundSize: 'contain',
+                     backgroundRepeat:  'no-repeat', backgroundPosition: 'center'}">
+              <div class="platform-icons" *ngFor="let icons of trainStation.platform[0].iconsGroup">
+                <img [src]="icons.src">
+              </div>
+            </div>
+          </div>
+          <div class="platform-wrapper  position-center-column">
+            <h4 class="platform-title">{{trainStation.platform[1].title}}</h4>
+            <p class="platform-subtitle">{{trainStation.platform[1].subTitle}}</p>
+            <div class="platform-illustration-wrapper"
+                 [ngStyle]="{background: 'url(' + trainStation.platform[1].scr + ')' ,backgroundSize: 'contain' ,
+                     backgroundRepeat:  'no-repeat' , backgroundPosition: 'center'}">
+              <div class="platform-icons" *ngFor="let icons of trainStation.platform[1].iconsGroup">
+                <img [src]="icons.src">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="first-raw">
+          <div class="platform-wrapper position-center-column">
+            <h4 class="platform-title">{{trainStation.platform[0].title}}</h4>
+            <p class="platform-subtitle">{{trainStation.platform[0].subTitle}}</p>
+            <div class="platform-illustration-wrapper"
+                 [ngStyle]="{background: 'url(' + trainStation.platform[0].scr + ')' ,backgroundSize: 'contain',
+                     backgroundRepeat:  'no-repeat', backgroundPosition: 'center'}">
+              <div class="platform-icons" *ngFor="let icons of trainStation.platform[0].iconsGroup">
+                <img [src]="icons.src">
+              </div>
+            </div>
+          </div>
+          <div class="platform-wrapper  position-center-column">
+            <h4 class="platform-title">{{trainStation.platform[1].title}}</h4>
+            <p class="platform-subtitle">{{trainStation.platform[1].subTitle}}</p>
+            <div class="platform-illustration-wrapper"
+                 [ngStyle]="{background: 'url(' + trainStation.platform[1].scr + ')' ,backgroundSize: 'contain' ,
+                     backgroundRepeat:  'no-repeat' , backgroundPosition: 'center'}">
+              <div class="platform-icons" *ngFor="let icons of trainStation.platform[1].iconsGroup">
+                <img [src]="icons.src">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="first-raw">
+          <div class="platform-wrapper position-center-column">
+            <h4 class="platform-title">{{trainStation.platform[0].title}}</h4>
+            <p class="platform-subtitle">{{trainStation.platform[0].subTitle}}</p>
+            <div class="platform-illustration-wrapper"
+                 [ngStyle]="{background: 'url(' + trainStation.platform[0].scr + ')' ,backgroundSize: 'contain',
+                     backgroundRepeat:  'no-repeat', backgroundPosition: 'center'}">
+              <div class="platform-icons" *ngFor="let icons of trainStation.platform[0].iconsGroup">
+                <img [src]="icons.src">
+              </div>
+            </div>
+          </div>
+          <div class="platform-wrapper  position-center-column">
+            <h4 class="platform-title">{{trainStation.platform[1].title}}</h4>
+            <p class="platform-subtitle">{{trainStation.platform[1].subTitle}}</p>
+            <div class="platform-illustration-wrapper"
+                 [ngStyle]="{background: 'url(' + trainStation.platform[1].scr + ')' ,backgroundSize: 'contain' ,
+                     backgroundRepeat:  'no-repeat' , backgroundPosition: 'center'}">
+              <div class="platform-icons" *ngFor="let icons of trainStation.platform[1].iconsGroup">
+                <img [src]="icons.src">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="first-raw">
+          <div class="platform-wrapper position-center-column">
+            <h4 class="platform-title">{{trainStation.platform[0].title}}</h4>
+            <p class="platform-subtitle">{{trainStation.platform[0].subTitle}}</p>
+            <div class="platform-illustration-wrapper"
+                 [ngStyle]="{background: 'url(' + trainStation.platform[0].scr + ')' ,backgroundSize: 'contain',
+                     backgroundRepeat:  'no-repeat', backgroundPosition: 'center'}">
+              <div class="platform-icons" *ngFor="let icons of trainStation.platform[0].iconsGroup">
+                <img [src]="icons.src">
+              </div>
+            </div>
+          </div>
+          <div class="platform-wrapper  position-center-column">
+            <h4 class="platform-title">{{trainStation.platform[1].title}}</h4>
+            <p class="platform-subtitle">{{trainStation.platform[1].subTitle}}</p>
+            <div class="platform-illustration-wrapper"
+                 [ngStyle]="{background: 'url(' + trainStation.platform[1].scr + ')' ,backgroundSize: 'contain' ,
+                     backgroundRepeat:  'no-repeat' , backgroundPosition: 'center'}">
+              <div class="platform-icons" *ngFor="let icons of trainStation.platform[1].iconsGroup">
+                <img [src]="icons.src">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="first-raw">
+          <div class="platform-wrapper position-center-column">
+            <h4 class="platform-title">{{trainStation.platform[0].title}}</h4>
+            <p class="platform-subtitle">{{trainStation.platform[0].subTitle}}</p>
+            <div class="platform-illustration-wrapper"
+                 [ngStyle]="{background: 'url(' + trainStation.platform[0].scr + ')' ,backgroundSize: 'contain',
+                     backgroundRepeat:  'no-repeat', backgroundPosition: 'center'}">
+              <div class="platform-icons" *ngFor="let icons of trainStation.platform[0].iconsGroup">
+                <img [src]="icons.src">
+              </div>
+            </div>
+          </div>
+          <div class="platform-wrapper  position-center-column">
+            <h4 class="platform-title">{{trainStation.platform[1].title}}</h4>
+            <p class="platform-subtitle">{{trainStation.platform[1].subTitle}}</p>
+            <div class="platform-illustration-wrapper"
+                 [ngStyle]="{background: 'url(' + trainStation.platform[1].scr + ')' ,backgroundSize: 'contain' ,
+                     backgroundRepeat:  'no-repeat' , backgroundPosition: 'center'}">
+              <div class="platform-icons" *ngFor="let icons of trainStation.platform[1].iconsGroup">
+                <img [src]="icons.src">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+<!--<div class="train-platforms" *ngFor="let platform of trainStation.platform">-->
+<!--  <div *ngIf="platform.index === 1 || platform.index === 2"  class="first-raw" >-->
+<!--    <div class="first-raw-platform-wrapper">-->
+<!--      <h4 class="platform-title">{{platform.title}}</h4>-->
+<!--      <p class="platform-subtitle">{{platform.subTitle}}</p>-->
+<!--      <div class="platform-illustration-wrapper"-->
+<!--           [ngStyle]="{background: 'url(' + platform.scr + ')' ,backgroundSize: 'contain' }">-->
+<!--        <div class="platform-icons" *ngFor="let icons of platform.iconsGroup">-->
+<!--          <img [src]="icons.src">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div *ngIf="platform.index === 3 || platform.index === 4"  class="second-raw" >-->
+<!--    <div class="first-raw-platform-wrapper">-->
+<!--      <h4 class="platform-title">{{platform.title}}</h4>-->
+<!--      <p class="platform-subtitle">{{platform.subTitle}}</p>-->
+<!--      <div class="platform-illustration-wrapper"-->
+<!--           [ngStyle]="{background: 'url(' + platform.scr + ')' ,backgroundSize: 'contain' }">-->
+<!--        <div class="platform-icons" *ngFor="let icons of platform.iconsGroup">-->
+<!--          <img [src]="icons.src">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div *ngIf="platform.index === 5 || platform.index === 6"  class="third-raw" >-->
+<!--    <div class="first-raw-platform-wrapper">-->
+<!--      <h4 class="platform-title">{{platform.title}}</h4>-->
+<!--      <p class="platform-subtitle">{{platform.subTitle}}</p>-->
+<!--      <div class="platform-illustration-wrapper"-->
+<!--           [ngStyle]="{background: 'url(' + platform.scr + ')' ,backgroundSize: 'contain' }">-->
+<!--        <div class="platform-icons" *ngFor="let icons of platform.iconsGroup">-->
+<!--          <img [src]="icons.src">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div *ngIf="platform.index === 7 || platform.index === 8"  class="four-raw" >-->
+<!--    <div class="first-raw-platform-wrapper">-->
+<!--      <h4 class="platform-title">{{platform.title}}</h4>-->
+<!--      <p class="platform-subtitle">{{platform.subTitle}}</p>-->
+<!--      <div class="platform-illustration-wrapper"-->
+<!--           [ngStyle]="{background: 'url(' + platform.scr + ')' ,backgroundSize: 'contain' }">-->
+<!--        <div class="platform-icons" *ngFor="let icons of platform.iconsGroup">-->
+<!--          <img [src]="icons.src">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div *ngIf="platform.index === 9 "  class="five-raw" >-->
+<!--    <div class="first-raw-platform-wrapper">-->
+<!--      <h4 class="platform-title">{{platform.title}}</h4>-->
+<!--      <p class="platform-subtitle">{{platform.subTitle}}</p>-->
+<!--      <div class="platform-illustration-wrapper"-->
+<!--           [ngStyle]="{background: 'url(' + platform.scr + ')' ,backgroundSize: 'contain' }">-->
+<!--        <div class="platform-icons" *ngFor="let icons of platform.iconsGroup">-->
+<!--          <img [src]="icons.src">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div *ngIf="platform.index === 10 "  class="six-raw" >-->
+<!--    <div class="first-raw-platform-wrapper">-->
+<!--      <h4 class="platform-title">{{platform.title}}</h4>-->
+<!--      <p class="platform-subtitle">{{platform.subTitle}}</p>-->
+<!--      <div class="platform-illustration-wrapper"-->
+<!--           [ngStyle]="{background: 'url(' + platform.scr + ')' ,backgroundSize: 'contain' }">-->
+<!--        <div class="platform-icons" *ngFor="let icons of platform.iconsGroup">-->
+<!--          <img [src]="icons.src">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

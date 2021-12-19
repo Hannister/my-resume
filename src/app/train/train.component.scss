@@ -1,10 +1,67 @@
-.train-page{
-  width: 100vw;
-  height: 100vh;
-  background-color: #7cbaf1;
+.train-page-container{
+  margin: 100px 250px;
+  height: 100%;
+}
+.page-title{
+  text-align: center;
+  margin-bottom: 80px;
 }
 
-p{
-  margin: 0;
-  padding: 20px;
+.train-station{
+
+  position: relative;
+  margin-top: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .train-rails {
+    background: url("../../assets/train-rails.png");
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+    width: 100%;
+
+  }
+
+  .all-train-raws{
+    position: relative;
+    top: -250px;
+
+  }
+  .first-raw{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    margin-bottom: 160px;
+
+  }
+  .platform-wrapper{
+    width: 50%;
+  }
+  .platform-illustration-wrapper{
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 125px;
+    width: 100%;
+    justify-content: center;
+
+
+    .platform-icons{
+      position: relative;
+      margin: 10px 20px;
+      top: 9px;
+
+    }
+    .platform-icons img{
+      width: 45px;
+
+    }
+  }
 }
