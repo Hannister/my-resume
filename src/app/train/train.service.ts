@@ -3,6 +3,7 @@ import {Station} from "./models/station";
 import {Platform} from "./models/platform";
 import {Train} from "./models/train";
 import {Icon} from "./models/icon";
+import {BehaviorSubject, Subject} from "rxjs";
 
 @Injectable({providedIn: 'root'})
 export class TrainService {
@@ -128,7 +129,7 @@ export class TrainService {
         ],
       },
       {title: '2010-2015',
-        subTitle: 'HELD - Branch Manager Graphic Designer & Photographer',
+        subTitle: 'HELD - Branch Manager, Graphic Designer & Photographer',
         description: '',
         type: 'two',
         index: 2,
@@ -136,8 +137,8 @@ export class TrainService {
         iconsGroup:[this.findIconByName('camera'),this.findIconByName('graphic-design'),
         ],
       },
-      {title: 'Graphic Design Diploma 2014-2015',
-        subTitle: '2014-2015 Shenkar College of  Engineering, Design and Art',
+      {title: '2014-2015',
+        subTitle: 'Graphic Design Diploma at Shenkar College of  Engineering, Design and Art',
         description: '',
         type: 'one',
         index: 3,
@@ -153,7 +154,7 @@ export class TrainService {
         index: 4,
         scr:'/assets/double.png',
         iconsGroup:[this.findIconByName('posterDesign'),this.findIconByName('logoDesign')
-          ,this.findIconByName('flyerDesign'),this.findIconByName('brandingDesign'),
+          ,this.findIconByName('printDesign'),this.findIconByName('brandingDesign'),
         ],
       },
       {title: '2017-2018',
@@ -172,7 +173,7 @@ export class TrainService {
         index: 6,
         scr:'/assets/double.png',
         iconsGroup:[this.findIconByName('unbounce'),this.findIconByName('xd'),
-          this.findIconByName('html'),this.findIconByName('css'),
+          this.findIconByName('css'),this.findIconByName('html'),
           this.findIconByName('js')
         ],
       },
@@ -183,7 +184,7 @@ export class TrainService {
         index: 7,
         scr:'/assets/double.png',
         iconsGroup:[this.findIconByName('unbounce'),this.findIconByName('xd'),
-          this.findIconByName('html'),this.findIconByName('css'),
+          this.findIconByName('css'),this.findIconByName('html'),
           this.findIconByName('js')
         ],
       },
@@ -193,7 +194,7 @@ export class TrainService {
         type: 'one',
         index: 8,
         scr:'/assets/single.png',
-        iconsGroup:[this.findIconByName('html'),this.findIconByName('css'),
+        iconsGroup:[this.findIconByName('css'), this.findIconByName('html'),
           this.findIconByName('js')
         ],
       },
@@ -221,7 +222,7 @@ export class TrainService {
 
   getTrain(){
     return this.train = {
-      icons: this.getIconList(),
+      icons: this.hideIcons(this.getIconList()),
       trainScr: '/assets/train.png',
       trainWagon: '/assets/wagon.png'
     }
@@ -238,7 +239,6 @@ export class TrainService {
     let iconList = this.getIconList()
     for(let item of iconList){
       if(item.name === name){
-        console.log(item.name ,name)
         return item
       }
     }
@@ -247,5 +247,14 @@ export class TrainService {
       index: 2,
       visible: true};
   }
+
+  hideIcons(iconsList: Icon[]){
+    for( let icon of iconsList){
+      icon.visible = false;
+    }
+    return iconsList;
+  }
+
+
 
 }

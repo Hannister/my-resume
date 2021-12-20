@@ -8,60 +8,282 @@
 }
 
 .train-station{
-
   position: relative;
   margin-top: 260px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  //display: flex;
+  //flex-direction: column;
+  //justify-content: space-between;
 
   .train-rails {
-    background: url("../../assets/train-rails.png");
-    background-size: contain;
-    background-position: top;
-    background-repeat: no-repeat;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     flex-wrap: wrap;
     position: relative;
-    width: 100%;
+    top: 75px;
+  }
+
+  .train-rails img{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 0;
+    width: 1400px;
 
   }
 
   .all-train-raws{
     position: relative;
-    top: -250px;
+    top: -260px;
 
   }
-  .first-raw{
+  .row{
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    margin-bottom: 160px;
+    margin-bottom: 185px;
+    align-items: end;
+  }
 
-  }
-  .platform-wrapper{
-    width: 50%;
-  }
-  .platform-illustration-wrapper{
+  .platform-container{
     position: relative;
-    display: flex;
-    align-items: center;
-    min-height: 125px;
-    width: 100%;
-    justify-content: center;
-
-
-    .platform-icons{
-      position: relative;
-      margin: 10px 20px;
-      top: 9px;
-
-    }
-    .platform-icons img{
-      width: 45px;
-
-    }
+    margin: 0 50px;
+    left: -65px;
   }
+
+  .second-raw,.four-raw {
+    flex-direction: row-reverse;
+  }
+
+  .second-raw{
+    position: relative;
+    top: -18px;
+    left: -20px;
+  }
+
+  .third-raw{
+    position: relative;
+    top: -36px;
+    left: 20px;
+  }
+
+  .four-raw{
+    position: relative;
+    top: -56px;
+  }
+
+  .five-raw, .six-raw{
+    position: relative;
+    top: -70px;
+    justify-content: center;
+  }
+
+  .moveLeft{
+    left: 70px!important;
+  }
+  .moveRight{
+    left: -40px!important;
+  }
+  .moveRightmore{
+    left: -50px!important;
+  }
+
+  .train-container{
+    position: absolute;
+    z-index: 10;
+    top: 23px;
+    left: -5px;
+    transition: all 0.3s ease-in;
+
+  }
+
+  .first-animation {
+    left: 770px;
+    transition: all 0.3s ease-in;
+
+  }
+
+  .third-animation {
+    left:250px!important;
+    transition: all 0.3s ease-in;
+  }
+
+  .four-animation {
+    left:0!important;
+    transition: all 0.3s ease-in;
+  }
+
+
+
+  .down1 {
+    transform: rotate(90deg);
+    transition: all 0.3s ease-in;
+  }
+
+  .down2{
+    top: 100px!important;
+    transition: all 0.3s ease-in;
+  }
+  .down3{
+    top: 400px!important;
+    transition: all 0.3s ease-in;
+  }
+  .down4{
+    top: 197px!important;
+    transition: all 0.3s ease-in;
+  }
+  .down5{
+    top: 403px!important;
+    transition: all 0.3s ease-in;
+  }
+
+  .down6 {
+    top: 802px!important;
+    transition: all 0.3s ease-in;
+  }
+  .down7 {
+    top: 440px!important;
+    transition: all 0.3s ease-in;
+  }
+  .down8 {
+    top: 600px!important;
+    transition: all 0.3s ease-in;
+  }
+  .down9 {
+    top: 805px!important;
+    transition: all 0.3s ease-in;
+  }
+  .move1{
+    left: 900px;
+    transition: all 0.3s ease-in;
+  }
+  .move2{
+    left: 70px!important;
+    transition: all 0.3s ease-in;
+  }
+  .move3{
+    left: 62px!important;
+    transition: all 0.3s ease-in;
+  }
+  .move4{
+    left: 780px!important;
+    transition: all 0.3s ease-in;
+  }
+
+  .rotate1 {
+    transform: rotate(0deg);
+    transition: all 0.3s ease-in;
+  }
+  .scaleX1 {
+    transform:scaleX(-1);
+    transition: all 0.3s ease-in;
+  }
+  .scaleX2 {
+    transform:scaleX(1) !important;
+    transition: all 0.3s ease-in;
+  }
+  .rotate2 {
+    transform: rotate(90deg) !important;
+    transition: all 0.3s ease-in;
+  }
+  .rotate3 {
+    transform: rotate(0) !important;
+    transition: all 0.3s ease-in;
+  }
+  .rotate4 {
+    transform: rotate(0) !important;
+    transition: all 0.3s ease-in;
+  }
+
+
+  .right1{
+    left: 150px!important;
+  }
+  .right2{
+    left: 280px!important;
+  }
+  .right3 {
+    left: 316px !important;
+  }
+
+
+    .left1{
+    left: -190px!important;
+  }
+  .left2{
+    left: -24px!important;
+  }
+  .left3{
+    left: -248px!important;
+  }
+  .left4 {
+    left: -40px !important;
+  }
+
+  .left5 {
+    left: 420px !important;
+  }
+
+  .left6 {
+    left: 12px !important;
+  }
+
+
+
+  .train-image img{
+      width: 170px;
+    }
+
+  .train-image {
+    position: absolute;
+    left: 410px;
+    top: -3px;
+    transition: all 0.3s ease-in;
+
+  }
+
+  .wagon-container {
+    position: relative;
+    top: 55px;
+
+    .wagon-image {
+      width: 410px;
+      position: absolute;
+      left: 3px;
+      transition: all 0.3s ease-in;
+
+    }
+
+    .wagon-icons-container{
+      display: flex;
+      flex-wrap: wrap;
+      width: 380px;
+      justify-content: center;
+      position: relative;
+      top: -38px;
+      left: 15px;
+    }
+
+    .wagon-icons{
+      position: relative;
+      margin: -12px -3px;
+    }
+
+    .wagon-icon{
+      width: 37px;
+    }
+
+
+  }
+
+
+
+
+
+
+
 }
+
+
+
