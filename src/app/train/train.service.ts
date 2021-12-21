@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import {ElementRef, Injectable} from '@angular/core';
 import {Station} from "./models/station";
 import {Platform} from "./models/platform";
 import {Train} from "./models/train";
 import {Icon} from "./models/icon";
-import {BehaviorSubject, Subject} from "rxjs";
+import {BehaviorSubject} from "rxjs";
 
 @Injectable({providedIn: 'root'})
 export class TrainService {
@@ -15,9 +15,8 @@ export class TrainService {
   train!: Train ;
   IconList!: Icon[] ;
 
-  setTrainStation(){
-    // this.trainStation = new Station( new Platform(), new train() )
-  }
+  isTrainMoving: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
+  selectedStation: BehaviorSubject<Platform | null>  = new BehaviorSubject<Platform | null>(null)
 
 
   getIconList() : Icon[]{
@@ -127,6 +126,7 @@ export class TrainService {
         scr:'/assets/single.png',
         iconsGroup:[this.findIconByName('diploma'),
         ],
+        className: 'one'
       },
       {title: '2010-2015',
         subTitle: 'HELD - Branch Manager, Graphic Designer & Photographer',
@@ -136,6 +136,7 @@ export class TrainService {
         scr:'/assets/double.png',
         iconsGroup:[this.findIconByName('camera'),this.findIconByName('graphic-design'),
         ],
+        className: 'two'
       },
       {title: '2014-2015',
         subTitle: 'Graphic Design Diploma at Shenkar College of  Engineering, Design and Art',
@@ -146,6 +147,7 @@ export class TrainService {
         iconsGroup:[this.findIconByName('photoshop'),this.findIconByName('illustrator')
           ,this.findIconByName('indesign'),
         ],
+        className: 'three'
       },
       {title: '2015-2017',
         subTitle: 'Tzevet Aphacot - Graphic Designer',
@@ -156,6 +158,7 @@ export class TrainService {
         iconsGroup:[this.findIconByName('posterDesign'),this.findIconByName('logoDesign')
           ,this.findIconByName('printDesign'),this.findIconByName('brandingDesign'),
         ],
+        className: 'four'
       },
       {title: '2017-2018',
         subTitle: 'Capital Unit - Web Designer',
@@ -165,6 +168,7 @@ export class TrainService {
         scr:'/assets/single.png',
         iconsGroup:[this.findIconByName('web-design'),this.findIconByName('marketing')
         ],
+        className: 'five'
       },
       {title: '2018-2019',
         subTitle: 'Business Wizard - Web Designer & Web Developer',
@@ -176,6 +180,7 @@ export class TrainService {
           this.findIconByName('css'),this.findIconByName('html'),
           this.findIconByName('js')
         ],
+        className: 'six'
       },
       {title: '2019-2020',
         subTitle: 'Freelance - Web Designer & Web Developer',
@@ -187,6 +192,7 @@ export class TrainService {
           this.findIconByName('css'),this.findIconByName('html'),
           this.findIconByName('js')
         ],
+        className: 'seven'
       },
       {title: '2019-2021',
         subTitle: 'Volunteer in she codes - Web course Manager ',
@@ -197,6 +203,7 @@ export class TrainService {
         iconsGroup:[this.findIconByName('css'), this.findIconByName('html'),
           this.findIconByName('js')
         ],
+        className: 'eight'
       },
       {title: '2020 - current',
         subTitle: 'SkillBee - Front End Developer & main Designer ',
@@ -208,6 +215,7 @@ export class TrainService {
           this.findIconByName('rxjs'),this.findIconByName('firebase'),
           this.findIconByName('scss'),this.findIconByName('ts'),
         ],
+        className: 'nine'
       },
       {title: 'My Next Station',
         subTitle: 'Lorem ipsum dolor sit amet',
@@ -215,7 +223,8 @@ export class TrainService {
         type: 'final',
         index: 10,
         scr:'/assets/final.png',
-        iconsGroup: this.getIconList()
+        iconsGroup: this.getIconList(),
+        className: 'ten'
       },
     ]
   }
@@ -228,12 +237,17 @@ export class TrainService {
     }
   }
 
+
+
   getStation() : Station{
-    return this.trainStation = {
+    this.trainStation = {
       train: this.getTrain(),
       platform: this.getPlatforms()
     }
+    this.selectedStation.next(this.trainStation.platform[0])
+    return this.trainStation;
   }
+
 
   findIconByName(name:string) : Icon{
     let iconList = this.getIconList()
@@ -254,6 +268,24 @@ export class TrainService {
     }
     return iconsList;
   }
+
+  setIsTrainMoving(value:boolean){
+    this.isTrainMoving.next(value);
+  }
+
+  getIsTrainMoving(){
+    return this.isTrainMoving;
+  }
+
+  setSelectedStation(platform:Platform){
+    this.selectedStation.next(platform);
+  }
+
+  geSelectedStation(){
+    return this.selectedStation;
+  }
+
+
 
 
 

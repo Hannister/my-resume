@@ -1,0 +1,155 @@
+.train-page-container{
+  margin: 60px 200px;
+  height: 100%;
+}
+.page-title{
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.train-buttons{
+  display: flex;
+  position: absolute;
+  top: 90%;
+  left: 58%;
+  transform: translate(-50%, -50%);
+
+  .btn-control {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 25px;
+    background: var(--primary-light);
+    cursor: pointer;
+    padding: 5px;
+    line-height: 14px;
+    transition: all 0.2s ease-in;
+    color: var(--primary-default);
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .button-text{
+    position: relative;
+    top: -14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+
+  }
+  .back-btn-text{
+    left: -97px;
+  }
+  .next-btn-text{
+    right: 15px;
+  }
+
+}
+
+.next-button:hover + .button-text , .previous-button:hover + .button-text{
+  color: var(--text-color-welcome);
+  transform: scale(1.1);
+
+}
+
+.btn-control:hover{
+  transform: scale(1.1);
+  background: var(--background-default)!important;
+  border: solid 1px var(--text-color-welcome)!important;
+}
+
+.previous-button:hover:before, .next-button:hover:before{
+  border-top: 2px solid var(--text-color-welcome) !important;
+  border-right: 2px solid var(--text-color-welcome) !important;}
+
+
+.train-station{
+  position: relative;
+  margin-top: 200px;
+
+  .train-rails {
+    .rails-image{
+      position: absolute;
+      left: -55%;
+      transform: scale(0.7);
+      top: 20px;
+    }
+  }
+
+  .train-container{
+    position: absolute;
+    transition: all 1s ease-in;
+    left: 300px;
+    bottom: -6px;
+    z-index: 9999;
+  }
+
+  .train-platforms{
+    display: flex;
+    align-items: end;
+    position: absolute;
+    height: 100%;
+    left: 1px;
+    transition: all 1s ease-in;
+
+
+    .platform-container{
+      margin: 0 300px;
+      width: 280px;
+    }
+
+    .one{
+      margin-left: 100px;
+    }
+  }
+
+}
+
+
+
+
+//.train-image img{
+//  width: 170px;
+//}
+//
+//.train-image {
+//  position: absolute;
+//  left: 410px;
+//  top: -3px;
+//  transition: all 0.3s ease-in;
+//
+//}
+//
+//.wagon-container {
+//  position: relative;
+//  top: 55px;
+//
+//  .wagon-image {
+//    width: 410px;
+//    position: absolute;
+//    left: 3px;
+//    transition: all 0.3s ease-in;
+//
+//  }
+//
+//  .wagon-icons-container{
+//    display: flex;
+//    flex-wrap: wrap;
+//    width: 380px;
+//    justify-content: center;
+//    position: relative;
+//    top: -38px;
+//    left: 15px;
+//  }
+//
+//  .wagon-icons{
+//    position: relative;
+//    margin: -12px -3px;
+//  }
+//
+//  .wagon-icon{
+//    width: 37px;
+//  }
+//
+//}

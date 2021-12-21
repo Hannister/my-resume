@@ -1,32 +1,40 @@
 .section-container{
+  transform: scale(0.8);
+  transform-origin:top center;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  position: relative;
+  left: -60px;
 }
 
 .my-illustration{
   width: 25%;
   height: 100%;
+  margin-right: 100px;
 }
 
 .talk-bubble{
   background-image: url("../../../assets/bubble.png");
-  width: 70%;
+  width: 64%;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 30px;
+  transform: scale(1.15);
+  position: relative;
+  left: -60px
 }
 
 
 .bubble-text{
   width: 87%;
+  height: 59%;
   position: relative;
-  left: 8px;
-  font-size:0.8vw;
+  left: 30px;
+  font-size:0.85vw;
   color: var(--text-color-default);
 }

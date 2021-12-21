@@ -23,7 +23,7 @@ export const transform2 = trigger('transformAnimation2',
   [
     state('go',
       style({ left: '600px', })),
-    state('dont',
+    state('don',
       style({ left: '300px'}),
       { params: { left: '*'}}
     ),

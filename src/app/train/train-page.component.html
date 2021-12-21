@@ -1,0 +1,48 @@
+<div class="train-page-container">
+<h2 class="page-title">Welcome To My Resume</h2>
+  <app-illustration-and-bubble ></app-illustration-and-bubble>
+  <div class="train-buttons">
+    <button class="previous-button btn-control" (click)="toPreviousStation()" ><</button>
+    <p class="button-text back-btn-text">Back</p>
+    <button class="next-button btn-control" (click)="toNextStation()">></button>
+    <p class="button-text next-btn-text">Next</p>
+
+  </div>
+<!--  <app-sub-titles>Learning & Experience</app-sub-titles>-->
+  <div class="train-station">
+    <div class="train-rails">
+      <img class="rails-image" src="assets/train-rails.png" >
+    </div>
+    <div #allPlatforms class="train-platforms">
+      <div #train class="train-container">
+        <app-train-illustration></app-train-illustration>
+      </div>
+      <app-platform [platform]="trainStation.platform[0]" class="platform-container one"></app-platform>
+      <app-platform [platform]="trainStation.platform[1]" class="platform-container two" ></app-platform>
+      <app-platform [platform]="trainStation.platform[2]" class="platform-container three"></app-platform>
+      <app-platform [platform]="trainStation.platform[3]" class="platform-container four"></app-platform>
+      <app-platform [platform]="trainStation.platform[4]" class="platform-container five"></app-platform>
+      <app-platform [platform]="trainStation.platform[5]" class="platform-container six"></app-platform>
+      <app-platform [platform]="trainStation.platform[6]" class="platform-container seven"></app-platform>
+      <app-platform [platform]="trainStation.platform[7]" class="platform-container eight"></app-platform>
+      <app-platform [platform]="trainStation.platform[8]" class="platform-container nine "></app-platform>
+      <app-platform [platform]="trainStation.platform[9]" class="platform-container ten "></app-platform>
+    </div>
+  </div>
+</div>
+
+<!--[@transformAnimation]="{value:transformValue,params:{leftStart:startNum ,left:moveNum }}"-->
+<!--    <div class="train-container">-->
+<!--      <div class="wagon-container">-->
+<!--        <img class="wagon-image" [src]="trainStation.train.trainWagon">-->
+<!--       <div class="wagon-icons-container">-->
+<!--         <div class="wagon-icons" *ngFor="let icon of trainStation.train.icons; let i = index">-->
+<!--           <img  *ngIf="icon.visible" class="wagon-icon" [ngClass]="{'front-line':  i <= 11}"-->
+<!--                [src]="icon.src">-->
+<!--         </div>-->
+<!--       </div>-->
+<!--      </div>-->
+<!--      <div class="train-image">-->
+<!--        <img [src]="trainStation.train.trainScr">-->
+<!--      </div>-->
+<!--    </div>-->

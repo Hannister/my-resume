@@ -8,6 +8,7 @@ export interface Platform {
   scr: string;
   index: number;
   iconsGroup: Icon[];
+  className: string;
 
   // constructor( title:string, subTitle:string, description:string, type:string, scr:string, index:number, iconsGroup:[Icon]) {
   //   this.title = title;
