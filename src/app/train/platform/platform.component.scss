@@ -18,63 +18,76 @@
 
 
   .platform-illustration-wrapper {
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    left: 0;
+    height: 92px;
+    width: 100%;
   }
 
   .platform-illustration-wrapper img {
     position: absolute;
-    height: 125%;
+    max-height: 115px;
     //left: 50%;
     //transform: translate(-50%, 0);
     //top: 0;
   }
 
   .two-icon-group {
-    padding: 10px 0 !important;
-    margin: 0 -12px !important;
+    margin: 0 22px !important;
   }
 
   .three-icons-group {
-    padding: 10px 0 !important;
-    margin: 0 -25px !important;
+    margin: 0 -10px !important;
+    //left: 73px;
   }
 
   .platform-icons {
     position: relative;
-    margin: 10px 20px;
+    margin: 10px 45px;
     top: 9px;
 
   }
 
   .platform-icons img {
-    width: 45px;
-    margin: 20px 15px;
-    position: relative;
-    top: 20px;
+    width: 40px;
+    top: -10px;
+    margin: 0 30px;
+    left: -52px;
   }
+
 
   .add-marge-right {
     margin-right: 30px !important;
   }
 
   .move-left {
-    position: relative;
-    left: -13px;
+    left: -129px!important;
+  }
 
+  .platform-seven{
+    position: relative!important;
+    margin: -36px 2px!important;
+  }
+
+  .move-icons-left{
+    left:  -48px!important;
   }
 
   .icon-up-front {
     z-index: 500;
+    margin-right: 60px;
   }
 
   .move-icon-left {
     left: 7px!important;
   }
-  .move-right{
-    left: -10px!important;
+  .platforms-nine-move-right{
+    left: -63px!important;
+  }
+  .platforms-nine-move-left{
+    left: -42px!important;
   }
 
   .final-icons {
@@ -84,8 +97,12 @@
 
   .final-back {
     margin: 0 -30px !important;
-    top: -10px !important;
-    left: 35px!important;
+    top: -24px !important;
+    left: -385px!important;
+  }
+
+  .platforms-six-seven{
+    left: -44px!important;
   }
 }
 

@@ -8,14 +8,19 @@
       </div>
     </div>
     <div class="engine-body">
-      <div class="wheels" [ngClass]="{'wheel-animation': isTrainMoving}">
+      <div class="wheels" [ngClass]="getWheelDirection()">
         <div class="big-wheel"></div>
         <div class="normal-wheel"></div>
       </div>
     </div>
   </div>
   <div class="locomotive">
-    <div class="wheels" [ngClass]="{'wheel-animation': isTrainMoving}">
+    <div class="train-icons">
+      <div  *ngFor="let icon of train.icons; let i = index">
+        <img *ngIf="icon.visible" class="icon-image" [src]="icon.src" [ngClass]="i> 11? 'second-row': 'first-row'">
+      </div>
+    </div>
+    <div class="wheels" [ngClass]="getWheelDirection()">
       <div class="small-wheel "></div>
       <div class="small-wheel"></div>
     </div>

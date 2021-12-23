@@ -15,7 +15,7 @@ export class TrainService {
   train!: Train ;
   IconList!: Icon[] ;
 
-  isTrainMoving: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
+  isTrainMoving: BehaviorSubject<string> = new BehaviorSubject<string>('noMove')
   selectedStation: BehaviorSubject<Platform | null>  = new BehaviorSubject<Platform | null>(null)
 
 
@@ -144,8 +144,7 @@ export class TrainService {
         type: 'one',
         index: 3,
         scr:'/assets/single.png',
-        iconsGroup:[this.findIconByName('photoshop'),this.findIconByName('illustrator')
-          ,this.findIconByName('indesign'),
+        iconsGroup:[ this.findIconByName('indesign'), this.findIconByName('photoshop'),this.findIconByName('illustrator')
         ],
         className: 'three'
       },
@@ -269,7 +268,7 @@ export class TrainService {
     return iconsList;
   }
 
-  setIsTrainMoving(value:boolean){
+  setIsTrainMoving(value:string){
     this.isTrainMoving.next(value);
   }
 

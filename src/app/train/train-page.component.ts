@@ -49,7 +49,7 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   toNextStation(){
-    this.trainService.setIsTrainMoving(true);
+    this.trainService.setIsTrainMoving('forward');
 
     let tempStation = this.selectedPlatform;
     if(tempStation) {
@@ -61,22 +61,25 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
         this.renderer.setStyle(this.allPlatforms.nativeElement, 'left', `${this.allPlatformLeft}px`);
       }
 
-
-        this.trainService.setSelectedStation(this.trainStation.platform[tempStation.index])
+      this.trainService.setSelectedStation(this.trainStation.platform[tempStation.index])
       if (tempStation.index === 10) {
         this.trainService.setSelectedStation(this.trainStation.platform[tempStation.index-1])
       }
+
+      this.iconsAnimation(tempStation.index);
     }
 
+
+
     setTimeout( ()=>{
-      this.trainService.setIsTrainMoving(false);
+      this.trainService.setIsTrainMoving('noMove');
     },1100);
 
   }
 
   toPreviousStation(){
 
-    this.trainService.setIsTrainMoving(true);
+    this.trainService.setIsTrainMoving('backward');
     let tempStation = this.selectedPlatform;
     if(tempStation) {
 
@@ -96,7 +99,7 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     setTimeout( ()=>{
-      this.trainService.setIsTrainMoving(false);
+      this.trainService.setIsTrainMoving('noMove');
     },1100);
   }
 
@@ -111,7 +114,19 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
     this.selectedPlatformSub.unsubscribe();
   }
 
+  iconsAnimation(index: number){
+    if(this.trainStation.platform[index-1]){
+      for(let icon of this.trainStation.platform[index-1].iconsGroup){
+        icon.visible = false;
+        for(let trainIcon of this.trainStation.train.icons){
+          if(icon.name === trainIcon.name){
+            trainIcon.visible = true;
+          }
+        }
+      }
 
+    }
+  }
 
 
 

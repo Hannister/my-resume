@@ -189,17 +189,19 @@ html, body {
 
 .locomotive {
   height: 5px;
-  width: 300px;
+  width: 370px;
   border: 2px solid #000;
   background-color: #F69F00;
   border-radius: 5px;
   position: relative;
-  left: -240px;
+  left: -309px;
   top: 38px;
 
   .wheels {
-    position: relative;
+    position: absolute;
     top: -20px;
+    left: 10px;
+    padding: 0 175px;
 
     > div {
       top: 22px;
@@ -262,9 +264,15 @@ html, body {
 }
 
 
-.wheel-animation{
+.wheel-forward-animation{
   > div {
-    animation: wheel-rotate 1s linear infinite;
+    animation: wheel-forward-rotate 1s linear infinite;
+  }
+}
+
+.wheel-backward-animation{
+  > div {
+    animation: wheel-backward-rotate 1s linear infinite;
   }
 }
 
@@ -275,9 +283,14 @@ html, body {
   }
 }
 
-@keyframes wheel-rotate {
+@keyframes wheel-forward-rotate {
   100% {
     transform: rotate(360deg);
+  }
+}
+@keyframes wheel-backward-rotate {
+  100% {
+    transform: rotate(-360deg);
   }
 }
 
@@ -285,4 +298,33 @@ html, body {
   100% {
     left: -200px;
   }
+}
+
+.train-icons{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 340px;
+  position: relative;
+  top: -85px;
+  justify-content: center;
+  align-items: center;
+  left: 16px;
+
+}
+
+.icon-image{
+  width: 40px;
+  height: 40px;
+  margin: 0 -6px;
+}
+
+
+.second-row{
+  margin: 0 -5px;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  top: -30px;
+
 }
