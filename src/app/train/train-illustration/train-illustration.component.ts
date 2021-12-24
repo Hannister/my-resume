@@ -2,6 +2,7 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
 import {TrainService} from "../train.service";
 import {Train} from "../models/train";
+import {Platform} from "../models/platform";
 
 @Component({
   selector: 'app-train-illustration',
@@ -15,17 +16,32 @@ export class TrainIllustrationComponent implements OnInit, OnDestroy {
 
   @Input() train! : Train;
 
+  selectedPlatform!: Platform|null;
+  selectedPlatformSub!: Subscription;
+  finalStation: boolean = false;
+
   constructor(private trainService: TrainService) { }
 
   ngOnInit(): void {
     this.isTrainMovingSub = this.trainService.isTrainMoving.subscribe( data =>{
       this.isTrainMoving = data;
-      console.log(data)
     })
+
+    this.selectedPlatformSub = this.trainService.selectedStation.subscribe( data=> {
+      if (data?.index === 10){
+        setTimeout( ()=>{
+          this.finalStation = true;
+        },1100)
+      } else{
+        this.finalStation = false;
+      }
+    })
+
   }
 
   ngOnDestroy(): void {
-    this.isTrainMovingSub.unsubscribe()
+    this.isTrainMovingSub.unsubscribe();
+    this.selectedPlatformSub.unsubscribe();
   }
 
   getWheelDirection(){

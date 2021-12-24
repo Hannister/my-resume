@@ -18,7 +18,8 @@ export class TrainService {
   isTrainMoving: BehaviorSubject<string> = new BehaviorSubject<string>('noMove')
   selectedStation: BehaviorSubject<Platform | null>  = new BehaviorSubject<Platform | null>(null)
 
-  startAnimation: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
+  startAnimation: BehaviorSubject<string> = new BehaviorSubject<string>('');
+
 
 
   getIconList() : Icon[]{
@@ -289,7 +290,7 @@ export class TrainService {
     return this.trainStation;
   }
 
-  setStartAnimation(value:boolean){
+  setStartAnimation(value:string){
     this.startAnimation.next(value);
   }
 

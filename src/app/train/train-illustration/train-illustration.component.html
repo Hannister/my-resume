@@ -17,7 +17,7 @@
   <div class="locomotive">
     <div class="train-icons">
       <div  *ngFor="let icon of train.icons; let i = index">
-        <img *ngIf="icon.visible" class="icon-image" [src]="icon.src" [ngClass]="i> 11? 'second-row': 'first-row'">
+        <img *ngIf="icon.visible && !finalStation" class="icon-image" [src]="icon.src" [ngClass]="i> 11? 'second-row': 'first-row'">
       </div>
     </div>
     <div class="wheels" [ngClass]="getWheelDirection()">

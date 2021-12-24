@@ -51,7 +51,7 @@
 
 
   .iconsStartAnimation{
-    animation: goToWagon 0.7s linear ;
+    animation: goToWagon 0.4s linear ;
     animation-iteration-count: 1
 
   }
@@ -68,14 +68,14 @@
   }
 
   .iconsFinishAnimation{
-    animation: goToStation 0.7s linear ;
+    animation: goToStation 0.3s linear ;
     animation-iteration-count: 1
 
   }
   @keyframes goToStation {
 
     50% {
-      top: -30px;
+      top: -20px;
       opacity: 1;
     }
 

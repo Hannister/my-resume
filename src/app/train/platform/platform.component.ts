@@ -11,10 +11,12 @@ import {TrainService} from "../train.service";
 export class PlatformComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @Input() platform!: Platform;
-  startAnimation: boolean = false;
+  startAnimation: string = '';
   startAnimationSub!: Subscription;
   selectedPlatform!: Platform|null;
   selectedPlatformSub!: Subscription;
+  finalStation: boolean = false;
+
 
   constructor(private trainService: TrainService) { }
 
@@ -22,7 +24,21 @@ export class PlatformComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit(): void {
     this.selectedPlatformSub = this.trainService.selectedStation.subscribe( data =>{
       this.selectedPlatform = data;
+      if (this.selectedPlatform?.index==10){
+        setTimeout(()=>{
+          this.finalStation = false;
+        },1200)
+      }
     })
+
+
+    if(this.platform.index ===10){
+      this.finalStation = true;
+    }else {
+      this.finalStation = false;
+    }
+
+
   }
 
   ngOnDestroy(): void {
@@ -34,23 +50,11 @@ export class PlatformComponent implements OnInit, OnDestroy, AfterViewInit {
     this.startAnimationSub = this.trainService.startAnimation.subscribe( data => {
 
       if(this.selectedPlatform?.index === this.platform.index){
-        console.log(this.selectedPlatform?.index, this.platform.index)
         this.startAnimation = data;
       }
 
     })
   }
 
-  // iconsAnimation(){
-  //   if(this.startAnimation === 'nextAnimation'){
-  //     return 'iconsStartAnimation'
-  //   }
-  //   if(this.startAnimation === 'backAnimation'){
-  //     return 'iconsFinishAnimation'
-  //   }
-  //   else {
-  //     return ''
-  //   }
-  // }
 
 }

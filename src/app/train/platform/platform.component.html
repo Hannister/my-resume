@@ -4,11 +4,11 @@
     <p [ngStyle]="{'max-width': platform.index === 2 || platform.index === 3 || platform.index === 4? '310px':''}" class="platform-subtitle">{{platform.subTitle}}</p>
     <div class="platform-illustration-wrapper">
         <img [src]="platform.scr">
-      <div   class="platform-icons" *ngFor="let icons of platform.iconsGroup; let i = index"
+      <div    class="platform-icons" *ngFor="let icons of platform.iconsGroup; let i = index"
             [ngClass]="{'two-icon-group': icons.index===2 && platform.type!=='final',
             'three-icons-group': (icons.index===3 || icons.index===8) && platform.type!=='final',
             'final-icons': platform.type==='final'}">
-        <img *ngIf="icons.visible" [src]="icons.src"
+        <img *ngIf="icons.visible && !finalStation  &&  platform.iconsGroup" [src]="icons.src"
               [ngClass]="{'add-marge-right': (i===1 ) && platform.iconsGroup.length > 2 && platform.type!=='final',
         'icon-up-front':( (i===1 && platform.index !== 8) || i===3 || (platform.index === 8 && i===1 )) && platform.iconsGroup.length > 2 && platform.type!=='final',
         'move-icons-left': (i===2 || i===3 ) && ( platform.iconsGroup.length ==4)  && (platform.type!=='final'),
@@ -17,7 +17,7 @@
         'final-back': platform.type==='final' && i <= 11,
         'platforms-nine-move-right': platform.index === 9 && (i===0|| i===1),
         'platforms-nine-move-left': platform.index === 9 && ( i===4|| i===5),
-        'iconsStartAnimation': startAnimation}" >
+        'iconsStartAnimation':startAnimation === 'nextAnimation', 'iconsFinishAnimation':startAnimation === 'backAnimation'}" >
       </div>
     </div>
   </div>
