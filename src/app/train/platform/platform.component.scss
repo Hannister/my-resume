@@ -2,7 +2,7 @@
   width: 100%;
   height: 100%;
   position: relative;
-  top: 5px;
+  top: -5px;
 
   .platform-wrapper {
     width: 100%;
@@ -29,9 +29,6 @@
   .platform-illustration-wrapper img {
     position: absolute;
     max-height: 115px;
-    //left: 50%;
-    //transform: translate(-50%, 0);
-    //top: 0;
   }
 
   .two-icon-group {
@@ -47,8 +44,46 @@
     position: relative;
     margin: 10px 45px;
     top: 9px;
+    //transition: all 2.5s ease-in;
 
   }
+
+
+
+  .iconsStartAnimation{
+    animation: goToWagon 0.7s linear ;
+    animation-iteration-count: 1
+
+  }
+  @keyframes goToWagon {
+
+    50% {
+      top: -30px;
+      opacity: 1;
+    }
+
+    100% {
+      top: 10px;
+    }
+  }
+
+  .iconsFinishAnimation{
+    animation: goToStation 0.7s linear ;
+    animation-iteration-count: 1
+
+  }
+  @keyframes goToStation {
+
+    50% {
+      top: -30px;
+      opacity: 1;
+    }
+
+    100% {
+      top: -10px;
+    }
+  }
+
 
   .platform-icons img {
     width: 40px;

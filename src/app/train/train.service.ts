@@ -18,6 +18,8 @@ export class TrainService {
   isTrainMoving: BehaviorSubject<string> = new BehaviorSubject<string>('noMove')
   selectedStation: BehaviorSubject<Platform | null>  = new BehaviorSubject<Platform | null>(null)
 
+  startAnimation: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
+
 
   getIconList() : Icon[]{
     return this.IconList = [
@@ -120,7 +122,7 @@ export class TrainService {
     return  this.platforms = [
       {title: '2009',
         subTitle: 'School Diploma',
-        description: '',
+        description: 'My name is Hanna but I prefer Hanny, and I’m looking for my next Angular developer position to hone my skills. I work as a developer and designer by day and a computer science student by night. In my free time I enjoy watching comedy horror movies and once a year I have my usual Skyrim replay.',
         type: 'one',
         index: 1,
         scr:'/assets/single.png',
@@ -130,7 +132,11 @@ export class TrainService {
       },
       {title: '2010-2015',
         subTitle: 'HELD - Branch Manager, Graphic Designer & Photographer',
-        description: '',
+        description: 'As part of my employment in Held \n' +
+          'I was responsible for the whole \n' +
+          'store operation including graphic \n' +
+          'design, digital development and \n' +
+          'printing on products.',
         type: 'two',
         index: 2,
         scr:'/assets/double.png',
@@ -140,7 +146,9 @@ export class TrainService {
       },
       {title: '2014-2015',
         subTitle: 'Graphic Design Diploma at Shenkar College of  Engineering, Design and Art',
-        description: '',
+        description: 'Shenkar College of \n' +
+          'Engineering, Design \n' +
+          'and Art',
         type: 'one',
         index: 3,
         scr:'/assets/single.png',
@@ -150,7 +158,11 @@ export class TrainService {
       },
       {title: '2015-2017',
         subTitle: 'Tzevet Aphacot - Graphic Designer',
-        description: '',
+        description: 'Designer in a studio that \n' +
+          'specializes in print design: \n' +
+          'branding, designing books, \n' +
+          'catalogs and posters, \n' +
+          'advertising and more.',
         type: 'two',
         index: 4,
         scr:'/assets/double.png',
@@ -161,7 +173,13 @@ export class TrainService {
       },
       {title: '2017-2018',
         subTitle: 'Capital Unit - Web Designer',
-        description: '',
+        description: 'Designed and updated \n' +
+          'websites, collaborated with \n' +
+          'the marketing department \n' +
+          'on a range of campaigns \n' +
+          '(landing pages, mailers and \n' +
+          'banners). designed for social \n' +
+          'networks and office events',
         type: 'one',
         index: 5,
         scr:'/assets/single.png',
@@ -171,7 +189,13 @@ export class TrainService {
       },
       {title: '2018-2019',
         subTitle: 'Business Wizard - Web Designer & Web Developer',
-        description: '',
+        description: 'Designed and updated \n' +
+          'websites, collaborated with \n' +
+          'the marketing department \n' +
+          'on a range of campaigns \n' +
+          '(landing pages, mailers and \n' +
+          'banners). designed for social \n' +
+          'networks and office events',
         type: 'two',
         index: 6,
         scr:'/assets/double.png',
@@ -183,7 +207,10 @@ export class TrainService {
       },
       {title: '2019-2020',
         subTitle: 'Freelance - Web Designer & Web Developer',
-        description: '',
+        description: 'Various graphic \n' +
+          'design work \n' +
+          'tailored to \n' +
+          'clients’ needs',
         type: 'two',
         index: 7,
         scr:'/assets/double.png',
@@ -195,7 +222,10 @@ export class TrainService {
       },
       {title: '2019-2021',
         subTitle: 'Volunteer in she codes - Web course Manager ',
-        description: '',
+        description: 'Various graphic \n' +
+          'design work \n' +
+          'tailored to \n' +
+          'clients’ needs',
         type: 'one',
         index: 8,
         scr:'/assets/single.png',
@@ -206,7 +236,13 @@ export class TrainService {
       },
       {title: '2020 - current',
         subTitle: 'SkillBee - Front End Developer & main Designer ',
-        description: '',
+        description: 'Designed and updated \n' +
+          'websites, collaborated with \n' +
+          'the marketing department \n' +
+          'on a range of campaigns \n' +
+          '(landing pages, mailers and \n' +
+          'banners). designed for social \n' +
+          'networks and office events',
         type: 'three',
         index: 9,
         scr:'/assets/three.png',
@@ -218,7 +254,13 @@ export class TrainService {
       },
       {title: 'My Next Station',
         subTitle: 'Lorem ipsum dolor sit amet',
-        description: '',
+        description: 'Designed and updated \n' +
+          'websites, collaborated with \n' +
+          'the marketing department \n' +
+          'on a range of campaigns \n' +
+          '(landing pages, mailers and \n' +
+          'banners). designed for social \n' +
+          'networks and office events',
         type: 'final',
         index: 10,
         scr:'/assets/final.png',
@@ -245,6 +287,10 @@ export class TrainService {
     }
     this.selectedStation.next(this.trainStation.platform[0])
     return this.trainStation;
+  }
+
+  setStartAnimation(value:boolean){
+    this.startAnimation.next(value);
   }
 
 
@@ -283,6 +329,8 @@ export class TrainService {
   geSelectedStation(){
     return this.selectedStation;
   }
+
+
 
 
 

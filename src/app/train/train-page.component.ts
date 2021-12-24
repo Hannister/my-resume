@@ -53,27 +53,44 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
     let tempStation = this.selectedPlatform;
     if(tempStation) {
+      this.trainService.setStartAnimation(true);
+
       if(tempStation.index<10){
         this.allPlatformLeft-=880;
-        this.renderer.setStyle(this.train.nativeElement, 'left', `${-this.allPlatformLeft+320}px`);
+
+        setTimeout( ()=>{
+          this.renderer.setStyle(this.train.nativeElement, 'left', `${-this.allPlatformLeft+320}px`);
+        },700);
+
       }
       if(tempStation.index<9){
-        this.renderer.setStyle(this.allPlatforms.nativeElement, 'left', `${this.allPlatformLeft}px`);
+        setTimeout( ()=>{
+          this.renderer.setStyle(this.allPlatforms.nativeElement, 'left', `${this.allPlatformLeft}px`);
+        },700);
       }
+      this.trainService.setStartAnimation(false);
 
-      this.trainService.setSelectedStation(this.trainStation.platform[tempStation.index])
-      if (tempStation.index === 10) {
-        this.trainService.setSelectedStation(this.trainStation.platform[tempStation.index-1])
-      }
-
-      this.iconsAnimation(tempStation.index);
+      setTimeout( ()=>{
+        this.iconsNextAnimation(tempStation!.index);
+        this.trainService.setSelectedStation(this.trainStation.platform[tempStation!.index])
+        if (tempStation!.index === 10) {
+          this.trainService.setSelectedStation(this.trainStation.platform[tempStation!.index-1])
+        }
+      },700);
     }
 
+
+    setTimeout( ()=>{
+      this.trainService.setStartAnimation(true);
+    },0);
 
 
     setTimeout( ()=>{
       this.trainService.setIsTrainMoving('noMove');
     },1100);
+
+
+
 
   }
 
@@ -96,6 +113,8 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
       if (tempStation.index === 1) {
         this.trainService.setSelectedStation(this.trainStation.platform[tempStation.index-1])
       }
+
+      this.iconsBackAnimation(tempStation.index)
     }
 
     setTimeout( ()=>{
@@ -114,7 +133,7 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
     this.selectedPlatformSub.unsubscribe();
   }
 
-  iconsAnimation(index: number){
+  iconsNextAnimation(index: number){
     if(this.trainStation.platform[index-1]){
       for(let icon of this.trainStation.platform[index-1].iconsGroup){
         icon.visible = false;
@@ -124,6 +143,22 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
           }
         }
       }
+
+    }
+  }
+
+  iconsBackAnimation(index: number){
+    if(this.trainStation.platform[index-2]){
+      setTimeout( ()=>{
+        for(let icon of this.trainStation.platform[index-2].iconsGroup){
+          icon.visible = true;
+          for(let trainIcon of this.trainStation.train.icons){
+            if(icon.name === trainIcon.name){
+              trainIcon.visible = false;
+            }
+          }
+        }
+      },1000)
 
     }
   }
