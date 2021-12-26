@@ -17,6 +17,9 @@ export class PlatformComponent implements OnInit, OnDestroy, AfterViewInit {
   selectedPlatformSub!: Subscription;
   finalStation: boolean = false;
 
+  isFinalStationAnimation: string = 'noMove'
+  isFinalStationAnimationSub!: Subscription;
+
 
   constructor(private trainService: TrainService) { }
 
@@ -27,7 +30,7 @@ export class PlatformComponent implements OnInit, OnDestroy, AfterViewInit {
       if (this.selectedPlatform?.index==10){
         setTimeout(()=>{
           this.finalStation = false;
-        },1200)
+        },1450)
       }
     })
 
@@ -39,11 +42,16 @@ export class PlatformComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
 
+    this.isFinalStationAnimationSub = this.trainService.isFinalStationAnimation.subscribe( data => {
+      this.isFinalStationAnimation = data;
+    })
+
   }
 
   ngOnDestroy(): void {
     this.startAnimationSub.unsubscribe();
     this.selectedPlatformSub.unsubscribe();
+    this.isFinalStationAnimationSub.unsubscribe();
   }
 
   ngAfterViewInit(): void {

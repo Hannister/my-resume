@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnDestroy, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {Subscription} from "rxjs";
 import {TrainService} from "../train.service";
 import {Train} from "../models/train";
@@ -13,27 +13,36 @@ export class TrainIllustrationComponent implements OnInit, OnDestroy {
 
   isTrainMoving: string = 'noMove';
   isTrainMovingSub!: Subscription;
+  isFinalStationAnimation: string = 'noMove'
+  isFinalStationAnimationSub!: Subscription;
 
   @Input() train! : Train;
+  @ViewChild('icons') icons!: ElementRef;
 
-  selectedPlatform!: Platform|null;
   selectedPlatformSub!: Subscription;
   finalStation: boolean = false;
 
-  constructor(private trainService: TrainService) { }
+  constructor(private trainService: TrainService,
+              private renderer: Renderer2) { }
 
   ngOnInit(): void {
     this.isTrainMovingSub = this.trainService.isTrainMoving.subscribe( data =>{
       this.isTrainMoving = data;
     })
 
+    this.isFinalStationAnimationSub = this.trainService.isFinalStationAnimation.subscribe( data => {
+      this.isFinalStationAnimation = data;
+    })
+
     this.selectedPlatformSub = this.trainService.selectedStation.subscribe( data=> {
       if (data?.index === 10){
         setTimeout( ()=>{
           this.finalStation = true;
-        },1100)
-      } else{
-        this.finalStation = false;
+        },1500)
+      }else {
+        setTimeout( ()=>{
+          this.finalStation = false;
+        },400)
       }
     })
 
@@ -42,6 +51,7 @@ export class TrainIllustrationComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.isTrainMovingSub.unsubscribe();
     this.selectedPlatformSub.unsubscribe();
+    this.isFinalStationAnimationSub.unsubscribe();
   }
 
   getWheelDirection(){

@@ -319,4 +319,22 @@ $yellow-shade: #F69F00;
 }
 
 
+.goToStation{
+  animation: toStation 0.4s linear ;
+  animation-iteration-count: 1
+
+}
+@keyframes toStation {
+
+  50%{
+    top: -130px;
+  }
+  100% {
+    top: -95px;
+  }
+}
+
+
+
+
 

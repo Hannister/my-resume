@@ -7,14 +7,14 @@
       <div    class="platform-icons" *ngFor="let icons of platform.iconsGroup; let i = index"
             [ngClass]="{'two-icon-group': icons.index===2 && platform.type!=='final',
             'three-icons-group': (icons.index===3 || icons.index===8) && platform.type!=='final',
-            'final-icons': platform.type==='final'}">
+            'final-icons': platform.type==='final',  'goToWagon2': isFinalStationAnimation === 'toWagon'}">
         <img *ngIf="icons.visible && !finalStation  &&  platform.iconsGroup" [src]="icons.src"
               [ngClass]="{'add-marge-right': (i===1 ) && platform.iconsGroup.length > 2 && platform.type!=='final',
         'icon-up-front':( (i===1 && platform.index !== 8) || i===3 || (platform.index === 8 && i===1 )) && platform.iconsGroup.length > 2 && platform.type!=='final',
         'move-icons-left': (i===2 || i===3 ) && ( platform.iconsGroup.length ==4)  && (platform.type!=='final'),
         'move-left': (platform.index === 6 || platform.index === 7) && (i===1||i===0) && platform.type!=='final',
         'platforms-six-seven': (platform.index === 6 || platform.index === 7) && (i ==2 || i ==3 || i ==4)&& platform.type!=='final',
-        'final-back': platform.type==='final' && i <= 11,
+        'final': platform.type==='final',
         'platforms-nine-move-right': platform.index === 9 && (i===0|| i===1),
         'platforms-nine-move-left': platform.index === 9 && ( i===4|| i===5),
         'iconsStartAnimation':startAnimation === 'nextAnimation', 'iconsFinishAnimation':startAnimation === 'backAnimation'}" >

@@ -19,6 +19,7 @@ export class TrainService {
   selectedStation: BehaviorSubject<Platform | null>  = new BehaviorSubject<Platform | null>(null)
 
   startAnimation: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  isFinalStationAnimation: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
 
 
@@ -325,6 +326,10 @@ export class TrainService {
 
   setSelectedStation(platform:Platform){
     this.selectedStation.next(platform);
+  }
+
+  setFinalAnimation(value:string){
+    this.isFinalStationAnimation.next(value);
   }
 
   geSelectedStation(){

@@ -21,13 +21,12 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
   selectedPlatformSub!: Subscription;
 
   allPlatformLeft =  0;
-  count =1;
-
-
-
+  randomNumNext: number = -50;
+  randomNumBack: number = 50;
 
   @ViewChild('train') train!: ElementRef;
   @ViewChild('allPlatforms') allPlatforms!: ElementRef;
+  @ViewChild('rails') rails!: ElementRef;
 
 
 
@@ -51,7 +50,6 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
   toNextStation(){
     this.trainService.setIsTrainMoving('forward');
     let tempIcons =  this.trainService.trainStation.platform[9].iconsGroup;
-
     let tempStation = this.selectedPlatform;
     if(tempStation) {
 
@@ -68,15 +66,14 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
       }
       if(tempStation.index<9){
         setTimeout( ()=>{
+
           this.renderer.setStyle(this.allPlatforms.nativeElement, 'left', `${this.allPlatformLeft}px`);
+          this.renderer.setStyle(this.rails.nativeElement, 'transform', `translateX(${this.randomNumNext}px)`);
         },400);
       }
-      this.trainService.setStartAnimation('');
 
       setTimeout( ()=>{
-        if(tempStation?.index!==10){
 
-        }
         this.iconsNextAnimation(tempStation!.index);
         this.trainService.setSelectedStation(this.trainStation.platform[tempStation!.index])
         if (tempStation!.index === 10) {
@@ -87,46 +84,94 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
     setTimeout( ()=>{
       this.trainService.setIsTrainMoving('noMove');
-    },1100);
+      this.trainService.setStartAnimation('');
+    },1300);
 
+
+    if(this.selectedPlatform?.index ===9 && this.selectedPlatform?.index+1 ===10 ){
+      for(let icon of this.trainStation.platform[9].iconsGroup!){
+        setTimeout( ()=>{
+          icon.visible = true;
+        },1900)
+      }
+    }
+
+
+    if(this.selectedPlatform?.index ===9){
+      setTimeout( ()=> {this.trainService.setFinalAnimation('toStation')},1500)
+
+    }
+    if(this.selectedPlatform?.index ===9){
+      setTimeout( ()=> {this.trainService.setFinalAnimation('noMove')},1900)
+
+    }
+
+
+    this.randomNumNext -= 50;
 
   }
 
   toPreviousStation(){
-    let tempIcons =  this.trainService.trainStation.platform[9].iconsGroup;
-
 
     this.trainService.setIsTrainMoving('backward');
     let tempStation = this.selectedPlatform;
-    if(tempStation) {
+    if(this.selectedPlatform) {
 
+      // icon jump animation
       setTimeout( ()=>{
         this.trainService.setStartAnimation('backAnimation');
-      },1000)
+      },1000);
 
-     if(tempStation.index >=2){
+      //stop animations
+      setTimeout( ()=>{
+        this.trainService.setIsTrainMoving('noMove');
+        this.trainService.setStartAnimation('');
+      },1200);
+
+      // movement animation
+     if(this.selectedPlatform.index >=2){
        this.allPlatformLeft+=880;
-       this.renderer.setStyle(this.train.nativeElement, 'left', `${-this.allPlatformLeft+320}px`);
-       this.renderer.setStyle(this.allPlatforms.nativeElement, 'left', `${this.allPlatformLeft}px`);
+       if(this.selectedPlatform?.index!==10){
+         this.renderer.setStyle(this.train.nativeElement, 'left', `${-this.allPlatformLeft+320}px`);
+         this.renderer.setStyle(this.allPlatforms.nativeElement, 'left', `${this.allPlatformLeft}px`);
+         this.renderer.setStyle(this.rails.nativeElement, 'transform', `translateX(${this.randomNumBack}px)`);
+       }else {
+         setTimeout(()=>{this.renderer.setStyle(this.train.nativeElement, 'left', `${-this.allPlatformLeft+320}px`);
+           this.renderer.setStyle(this.allPlatforms.nativeElement, 'left', `${this.allPlatformLeft}px`);
+           this.renderer.setStyle(this.rails.nativeElement, 'transform', `translateX(${this.randomNumBack}px)`);},500)
+       }
+
      }
-
-     this.trainService.setStartAnimation('');
-     this.trainService.setSelectedStation(this.trainStation.platform[tempStation!.index-2])
-      if (tempStation!.index === 1) {
-        this.trainService.setSelectedStation(this.trainStation.platform[tempStation!.index-1])
+     this.trainService.setSelectedStation(this.trainStation.platform[this.selectedPlatform!.index-2])
+      if (this.selectedPlatform!.index === 1) {
+        this.trainService.setSelectedStation(this.trainStation.platform[this.selectedPlatform!.index-1])
       }
-      this.iconsBackAnimation(tempStation!.index)
-
     }
 
+  // hive final icons after click
     setTimeout( ()=>{
-      this.trainService.setIsTrainMoving('noMove');
-    },1000);
+      if(this.selectedPlatform?.index ===9 && this.selectedPlatform?.index+1 ===10 ){
+        for(let icon of this.trainStation.platform[9].iconsGroup!){
+          icon.visible = false;
+        }
+      }
+    },400)
 
+    // final station animation animation
+    if(this.selectedPlatform?.index ===9){
+      setTimeout( ()=> {this.trainService.setFinalAnimation('toWagon')},0)
+      setTimeout( ()=> {
+        this.trainService.setFinalAnimation('noMove');
+        this.iconsBackAnimation(tempStation!.index)
+      },500);
+      setTimeout( ()=> {this.trainService.setStartAnimation('backAnimation')},1500)
 
-    if(tempStation?.index === 10){
-
+    }else{
+      this.iconsBackAnimation(tempStation!.index)
     }
+
+
+    this.randomNumBack += 50;
   }
 
 

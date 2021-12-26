@@ -126,14 +126,8 @@
   }
 
   .final-icons {
-    margin: 0 -17px !important;
-    left: 198px!important;
-  }
-
-  .final-back {
-    margin: 0 -30px !important;
-    top: -24px !important;
-    left: -385px!important;
+    left: 5px!important;
+    margin: 0 -10px!important;
   }
 
   .platforms-six-seven{
@@ -141,4 +135,18 @@
   }
 }
 
+.goToWagon2{
+  animation: toWagon 0.4s linear ;
+  animation-iteration-count: 1
 
+}
+@keyframes toWagon {
+
+  50% {
+    top: -30px;
+  }
+
+  100% {
+    top: 40px;
+  }
+}

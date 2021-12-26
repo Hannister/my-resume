@@ -10,9 +10,9 @@
 .train-buttons{
   display: flex;
   position: absolute;
-  top: 90%;
-  left: 58%;
-  transform: translate(-50%, -50%);
+  top: 460px;
+  left: 56%;
+  transform: translate(-50%, -50%) scale(1.2);
 
   .btn-control {
     display: inline-block;
@@ -39,21 +39,32 @@
 
   }
   .back-btn-text{
-    left: -97px;
+    left: -10px;
   }
   .next-btn-text{
-    right: 15px;
+    right: -70px;
   }
 
 }
 
-.next-button:hover + .button-text , .previous-button:hover + .button-text{
+.next-button:hover ~ .next-btn-text , .previous-button:hover ~ .back-btn-text{
+  color: var(--text-color-welcome);
+  transform: scale(1.1);
+
+}
+
+.button-text:hover{
   color: var(--text-color-welcome);
   transform: scale(1.1);
 
 }
 
 .btn-control:hover{
+  transform: scale(1.1);
+  background: var(--background-default)!important;
+  border: solid 1px var(--text-color-welcome)!important;
+}
+.back-btn-text:hover ~ .previous-button , .next-btn-text:hover ~ .next-button  {
   transform: scale(1.1);
   background: var(--background-default)!important;
   border: solid 1px var(--text-color-welcome)!important;
@@ -66,14 +77,14 @@
 
 .train-station{
   position: relative;
-  margin-top: 200px;
+  margin-top: 230px;
 
   .train-rails {
     .rails-image{
       position: absolute;
       left: -55%;
-      transform: scale(0.7);
       top: 20px;
+      transition: all 1s ease-in;
     }
   }
 
@@ -107,49 +118,51 @@
 }
 
 
+.languages-container{
+  margin-top: 350px;
+
+  //********* animated graphs *********//
+  .animation-item {
+    margin-bottom: 1rem;
+    width: 190px;
+  }
+
+  .graph-text {
+    fill: var(--text-color-default);
+  }
+
+  .animation-graph-container {
+    height: 15rem;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    text-align: center;
+    width: 15rem;
+
+    //** circle graph **/
+    .circle-bg {
+      fill: none;
+      stroke: #4A566F;
+      stroke-width: 3;
+    }
+    .graph-circle {
+      fill: none;
+      stroke-linecap: round;
+    }
+
+    .circle-animation {
+      stroke-width: 3.2;
+      stroke: var(--selected-lighter);
+      animation: progress 1s ease-out forwards;
+    }
+    @keyframes progress {
+      0% {
+        stroke-dasharray: 0 100;
+      }
+    }
+  }
+
+}
 
 
-//.train-image img{
-//  width: 170px;
-//}
-//
-//.train-image {
-//  position: absolute;
-//  left: 410px;
-//  top: -3px;
-//  transition: all 0.3s ease-in;
-//
-//}
-//
-//.wagon-container {
-//  position: relative;
-//  top: 55px;
-//
-//  .wagon-image {
-//    width: 410px;
-//    position: absolute;
-//    left: 3px;
-//    transition: all 0.3s ease-in;
-//
-//  }
-//
-//  .wagon-icons-container{
-//    display: flex;
-//    flex-wrap: wrap;
-//    width: 380px;
-//    justify-content: center;
-//    position: relative;
-//    top: -38px;
-//    left: 15px;
-//  }
-//
-//  .wagon-icons{
-//    position: relative;
-//    margin: -12px -3px;
-//  }
-//
-//  .wagon-icon{
-//    width: 37px;
-//  }
-//
-//}
+

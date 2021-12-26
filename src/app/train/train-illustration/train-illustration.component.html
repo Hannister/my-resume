@@ -15,9 +15,10 @@
     </div>
   </div>
   <div class="locomotive">
-    <div class="train-icons">
+    <div class="train-icons" #icons [ngClass]="{'goToStation': isFinalStationAnimation === 'toStation'}">
       <div  *ngFor="let icon of train.icons; let i = index">
-        <img *ngIf="icon.visible && !finalStation" class="icon-image" [src]="icon.src" [ngClass]="i> 11? 'second-row': 'first-row'">
+        <img *ngIf="icon.visible && !finalStation" class="icon-image"
+             [src]="icon.src" [ngClass] = "{'second-row':i> 11, 'first-row':  i>= 11 }">
       </div>
     </div>
     <div class="wheels" [ngClass]="getWheelDirection()">

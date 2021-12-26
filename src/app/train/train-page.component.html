@@ -2,16 +2,16 @@
 <h2 class="page-title">Welcome To My Resume</h2>
   <app-illustration-and-bubble ></app-illustration-and-bubble>
   <div class="train-buttons">
+    <p class="button-text back-btn-text" (click)="toPreviousStation()">Back</p>
     <button class="previous-button btn-control" (click)="toPreviousStation()" ><</button>
-    <p class="button-text back-btn-text">Back</p>
+    <p class="button-text next-btn-text"  (click)="toNextStation()">Next</p>
     <button class="next-button btn-control" (click)="toNextStation()">></button>
-    <p class="button-text next-btn-text">Next</p>
 
   </div>
 <!--  <app-sub-titles>Learning & Experience</app-sub-titles>-->
   <div class="train-station">
     <div class="train-rails">
-      <img class="rails-image" src="assets/train-rails.png" >
+      <img #rails class="rails-image" src="assets/train-rails.png" >
     </div>
     <div #allPlatforms class="train-platforms">
       <div #train class="train-container">
@@ -29,4 +29,85 @@
       <app-platform [platform]="trainStation.platform[9]" class="platform-container ten "></app-platform>
     </div>
   </div>
+    <div class="languages-container">
+      <app-sub-titles>Languages</app-sub-titles>
+      <h4 class="click-on-lang position-center-row">Click on the language</h4>
+
+      <div class="graph-circles">
+        <!-- animation item -->
+        <div class="animation-item pl-3 pr-3">
+          <div class="animation-graph-container mb-3">
+
+            <svg viewBox="-2 -12 40 60">
+              <path class="circle-bg" d="M18 2.0845
+                                       a 15.9155 15.9155 0 0 1 0 31.831
+                                       a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <path class="graph-circle circle-animation  circle-animation" stroke-dasharray="100, 100"
+                    d="M18 2.0845
+                     a 15.9155 15.9155 0 0 1 0 31.831
+                     a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <text x="12.5" y="-2.5" font-family="Quicksand" font-weight="600" font-size="5px" class="graph-text">100%</text>
+            </svg>
+
+          </div>
+
+          <h5 class="light-text text-center">Hebrew</h5>
+
+        </div>
+        <!-- **END** animation item -->
+
+        <!-- animation item -->
+        <div class="animation-item pl-3 pr-3">
+          <div class="animation-graph-container mb-3">
+
+            <svg viewBox="-2 -12 40 60">
+              <path class="circle-bg" d="M18 2.0845
+                                       a 15.9155 15.9155 0 0 1 0 31.831
+                                       a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <path class="graph-circle circle-animation" stroke-dasharray="85, 100"
+                    d="M18 2.0845
+                     a 15.9155 15.9155 0 0 1 0 31.831
+                     a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <text x="14.5" y="-2.5" font-family="Quicksand" font-weight="600" font-size="5px" class="graph-text">85%</text>
+            </svg>
+
+          </div>
+
+          <h5 class="light-text text-center">English</h5>
+
+        </div>
+        <!-- **END** animation item -->
+
+        <!-- animation item -->
+        <div class="animation-item pl-3 pr-3">
+          <div class="animation-graph-container mb-3">
+
+            <svg viewBox="-2 -12 40 60">
+              <path class="circle-bg" d="M18 2.0845
+                                       a 15.9155 15.9155 0 0 1 0 31.831
+                                       a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <path class="graph-circle circle-animation" stroke-dasharray="75, 100"
+                    d="M18 2.0845
+                     a 15.9155 15.9155 0 0 1 0 31.831
+                     a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <text x="14.5" y="-2.5" font-family="Quicksand" font-weight="600" font-size="5px" class="graph-text">75%</text>
+            </svg>
+
+          </div>
+
+          <h5 class="light-text text-center">Russian</h5>
+
+        </div>
+        <!-- **END** animation item -->
+      </div>
+    </div>
+
+
+
 </div>
