@@ -1,0 +1,77 @@
+<app-sub-titles>Languages</app-sub-titles>
+<div class="languages-wrapper">
+  <h4 class="click-on-lang position-center-row-complete">Click on the language</h4>
+  <div class="graph-circles">
+    <!-- animation item -->
+    <div class="animation-item">
+      <div class="animation-graph-container ">
+
+        <svg viewBox="-2 -12 40 60">
+          <path class="circle-bg" d="M18 2.0845
+                                       a 15.9155 15.9155 0 0 1 0 31.831
+                                       a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+          <path #circleGraph [ngClass]="{'circle-animation': starCircleAnimation}" class="graph-circle" stroke-dasharray="100, 100"
+                d="M18 2.0845
+                     a 15.9155 15.9155 0 0 1 0 31.831
+                     a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+          <text x="12.5" y="-2.5" font-family="Quicksand" font-weight="500" font-size="4px" class="graph-text">100%</text>
+        </svg>
+
+      </div>
+
+      <h5 class="subtitle-lang">Hebrew</h5>
+
+    </div>
+    <!-- **END** animation item -->
+
+    <!-- animation item -->
+    <div class="animation-item">
+      <div class="animation-graph-container">
+
+        <svg viewBox="-2 -12 40 60">
+          <path class="circle-bg" d="M18 2.0845
+                                       a 15.9155 15.9155 0 0 1 0 31.831
+                                       a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+          <path [ngClass]="{'circle-animation': starCircleAnimation}" class="graph-circle" stroke-dasharray="85, 100"
+                d="M18 2.0845
+                     a 15.9155 15.9155 0 0 1 0 31.831
+                     a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+          <text x="14.5" y="-2.5" font-family="Quicksand" font-weight="500" font-size="4px" class="graph-text">85%</text>
+        </svg>
+
+      </div>
+
+      <h5 class="subtitle-lang">English</h5>
+
+    </div>
+    <!-- **END** animation item -->
+
+    <!-- animation item -->
+    <div class="animation-item">
+      <div class="animation-graph-container">
+
+        <svg viewBox="-2 -12 40 60">
+          <path class="circle-bg" d="M18 2.0845
+                                       a 15.9155 15.9155 0 0 1 0 31.831
+                                       a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+          <path [ngClass]="{'circle-animation': starCircleAnimation}" class="graph-circle" stroke-dasharray="75, 100"
+                d="M18 2.0845
+                     a 15.9155 15.9155 0 0 1 0 31.831
+                     a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+          <text x="14.5" y="-2.5" font-family="Quicksand" font-weight="500" font-size="4px" class="graph-text">75%</text>
+        </svg>
+
+      </div>
+
+      <h5 class="subtitle-lang">Russian</h5>
+
+    </div>
+    <!-- **END** animation item -->
+  </div>
+</div>

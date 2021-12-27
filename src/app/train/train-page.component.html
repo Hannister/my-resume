@@ -1,6 +1,8 @@
-<div class="train-page-container">
+<div class="train-page-container" id="pageTop">
 <h2 class="page-title">Welcome To My Resume</h2>
-  <app-illustration-and-bubble ></app-illustration-and-bubble>
+  <div class="illustration-and-bubble">
+    <app-illustration-and-bubble></app-illustration-and-bubble>
+  </div>
   <div class="train-buttons">
     <p class="button-text back-btn-text" (click)="toPreviousStation()">Back</p>
     <button class="previous-button btn-control" (click)="toPreviousStation()" ><</button>
@@ -8,7 +10,6 @@
     <button class="next-button btn-control" (click)="toNextStation()">></button>
 
   </div>
-<!--  <app-sub-titles>Learning & Experience</app-sub-titles>-->
   <div class="train-station">
     <div class="train-rails">
       <img #rails class="rails-image" src="assets/train-rails.png" >
@@ -29,85 +30,24 @@
       <app-platform [platform]="trainStation.platform[9]" class="platform-container ten "></app-platform>
     </div>
   </div>
-    <div class="languages-container">
-      <app-sub-titles>Languages</app-sub-titles>
-      <h4 class="click-on-lang position-center-row">Click on the language</h4>
+  <div class="arrow-down"(click)="onClick('languages-container')">
+    <mat-icon class="goDownIcon" aria-label="go down icon">keyboard_arrow_down</mat-icon>
+  </div>
+  <div class="languages-container" id="languages-container" >
+    <app-languages></app-languages>
+  </div>
+  <div class="Contact-container">
+    <app-contact></app-contact>
+  </div>
 
-      <div class="graph-circles">
-        <!-- animation item -->
-        <div class="animation-item pl-3 pr-3">
-          <div class="animation-graph-container mb-3">
 
-            <svg viewBox="-2 -12 40 60">
-              <path class="circle-bg" d="M18 2.0845
-                                       a 15.9155 15.9155 0 0 1 0 31.831
-                                       a 15.9155 15.9155 0 0 1 0 -31.831"
-              />
-              <path class="graph-circle circle-animation  circle-animation" stroke-dasharray="100, 100"
-                    d="M18 2.0845
-                     a 15.9155 15.9155 0 0 1 0 31.831
-                     a 15.9155 15.9155 0 0 1 0 -31.831"
-              />
-              <text x="12.5" y="-2.5" font-family="Quicksand" font-weight="600" font-size="5px" class="graph-text">100%</text>
-            </svg>
+  <div class="thanks-container">
+    <app-thank-you></app-thank-you>
+  </div>
 
-          </div>
-
-          <h5 class="light-text text-center">Hebrew</h5>
-
-        </div>
-        <!-- **END** animation item -->
-
-        <!-- animation item -->
-        <div class="animation-item pl-3 pr-3">
-          <div class="animation-graph-container mb-3">
-
-            <svg viewBox="-2 -12 40 60">
-              <path class="circle-bg" d="M18 2.0845
-                                       a 15.9155 15.9155 0 0 1 0 31.831
-                                       a 15.9155 15.9155 0 0 1 0 -31.831"
-              />
-              <path class="graph-circle circle-animation" stroke-dasharray="85, 100"
-                    d="M18 2.0845
-                     a 15.9155 15.9155 0 0 1 0 31.831
-                     a 15.9155 15.9155 0 0 1 0 -31.831"
-              />
-              <text x="14.5" y="-2.5" font-family="Quicksand" font-weight="600" font-size="5px" class="graph-text">85%</text>
-            </svg>
-
-          </div>
-
-          <h5 class="light-text text-center">English</h5>
-
-        </div>
-        <!-- **END** animation item -->
-
-        <!-- animation item -->
-        <div class="animation-item pl-3 pr-3">
-          <div class="animation-graph-container mb-3">
-
-            <svg viewBox="-2 -12 40 60">
-              <path class="circle-bg" d="M18 2.0845
-                                       a 15.9155 15.9155 0 0 1 0 31.831
-                                       a 15.9155 15.9155 0 0 1 0 -31.831"
-              />
-              <path class="graph-circle circle-animation" stroke-dasharray="75, 100"
-                    d="M18 2.0845
-                     a 15.9155 15.9155 0 0 1 0 31.831
-                     a 15.9155 15.9155 0 0 1 0 -31.831"
-              />
-              <text x="14.5" y="-2.5" font-family="Quicksand" font-weight="600" font-size="5px" class="graph-text">75%</text>
-            </svg>
-
-          </div>
-
-          <h5 class="light-text text-center">Russian</h5>
-
-        </div>
-        <!-- **END** animation item -->
-      </div>
-    </div>
-
+  <div class="arrow-up"(click)="onClick('pageTop')">
+    <mat-icon class="goUpIcon" aria-label="go up icon">keyboard_arrow_up</mat-icon>
+  </div>
 
 
 </div>

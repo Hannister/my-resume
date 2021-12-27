@@ -1,0 +1,37 @@
+
+.icons-contact{
+  margin:  80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  &:hover{
+    transform: scale(1.1);
+  }
+}
+
+
+
+.icons-contact p {
+  position: relative;
+  font-weight: 600;
+  font-size: 26px;
+}
+.gmail-icon:hover.gmail-icon:after,
+.whatsapp-icon:hover.whatsapp-icon:after,
+.download-icon:hover.download-icon:after{
+  content: "";
+  height: 7px;
+  width: 100%;
+  background: var(--background-default);
+  position: absolute;
+  z-index: -1;
+  top: 168px;
+}
+
+.icons-contact img {
+  width: 115px;
+  height: 115px;
+}

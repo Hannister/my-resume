@@ -1,25 +1,33 @@
 .train-page-container{
-  margin: 60px 200px;
+
   height: 100%;
+  position: relative;
 }
 .page-title{
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 0;
+  margin-top: 75px;
+}
+
+.illustration-and-bubble{
+  transform: scale(0.85);
+  max-height: 425px;
 }
 
 .train-buttons{
   display: flex;
-  position: absolute;
-  top: 460px;
-  left: 56%;
-  transform: translate(-50%, -50%) scale(1.2);
+  justify-content: center;
+  position: relative;
+  top: -80px;
+  left: 15px;
+  transform:scale(1.2);
 
   .btn-control {
     display: inline-block;
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    margin-right: 25px;
+    margin-right: 0;
     background: var(--primary-light);
     cursor: pointer;
     padding: 5px;
@@ -44,40 +52,71 @@
   .next-btn-text{
     right: -70px;
   }
+  .next-button:hover ~ .next-btn-text , .previous-button:hover ~ .back-btn-text{
+    color: var(--text-color-welcome);
+    transform: scale(1.1);
+
+  }
+
+  .button-text:hover{
+    color: var(--text-color-welcome);
+    transform: scale(1.1);
+
+  }
+
+  .btn-control:hover{
+    transform: scale(1.1);
+    background: var(--background-default)!important;
+    border: solid 1px var(--text-color-welcome)!important;
+  }
+  .back-btn-text:hover ~ .previous-button , .next-btn-text:hover ~ .next-button  {
+    transform: scale(1.1);
+    background: var(--background-default)!important;
+    border: solid 1px var(--text-color-welcome)!important;
+  }
+
+  .previous-button:hover:before, .next-button:hover:before{
+    border-top: 2px solid var(--text-color-welcome) !important;
+    border-right: 2px solid var(--text-color-welcome) !important;}
 
 }
 
-.next-button:hover ~ .next-btn-text , .previous-button:hover ~ .back-btn-text{
-  color: var(--text-color-welcome);
-  transform: scale(1.1);
+.arrow-down{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 120px;
 
+
+  .goDownIcon{
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+    font-weight: 300;
+    border-radius: 50%;
+    text-align: center;
+    animation: MoveUpDown 1.5s linear infinite;
+    position: absolute;
+    cursor: pointer;
+    &:hover{
+      background: var(--primary-light);
+    }
+  }
+
+  @keyframes MoveUpDown {
+    0%, 100% {
+      bottom: 0;
+    }
+    50% {
+      bottom: -7px;
+    }
+  }
 }
-
-.button-text:hover{
-  color: var(--text-color-welcome);
-  transform: scale(1.1);
-
-}
-
-.btn-control:hover{
-  transform: scale(1.1);
-  background: var(--background-default)!important;
-  border: solid 1px var(--text-color-welcome)!important;
-}
-.back-btn-text:hover ~ .previous-button , .next-btn-text:hover ~ .next-button  {
-  transform: scale(1.1);
-  background: var(--background-default)!important;
-  border: solid 1px var(--text-color-welcome)!important;
-}
-
-.previous-button:hover:before, .next-button:hover:before{
-  border-top: 2px solid var(--text-color-welcome) !important;
-  border-right: 2px solid var(--text-color-welcome) !important;}
-
 
 .train-station{
+  margin:   150px 200px 0;
   position: relative;
-  margin-top: 230px;
 
   .train-rails {
     .rails-image{
@@ -95,10 +134,14 @@
     bottom: -6px;
     z-index: 9999;
   }
+  .train-containerSlow{
+    transition: all 1.5s ease-in;
+  }
+
 
   .train-platforms{
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     position: absolute;
     height: 100%;
     left: 1px;
@@ -117,51 +160,35 @@
 
 }
 
-
 .languages-container{
-  margin-top: 350px;
+  position: relative;
+  top: 40px;
+}
 
-  //********* animated graphs *********//
-  .animation-item {
-    margin-bottom: 1rem;
-    width: 190px;
-  }
+.arrow-up {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  position: relative;
+  top: -80px;
+  height: 100px;
 
-  .graph-text {
-    fill: var(--text-color-default);
-  }
-
-  .animation-graph-container {
-    height: 15rem;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
+  .goUpIcon {
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+    font-weight: 300;
+    border-radius: 50%;
     text-align: center;
-    width: 15rem;
+    animation: MoveUpDown 1.5s linear infinite;
+    position: absolute;
+    cursor: pointer;
 
-    //** circle graph **/
-    .circle-bg {
-      fill: none;
-      stroke: #4A566F;
-      stroke-width: 3;
-    }
-    .graph-circle {
-      fill: none;
-      stroke-linecap: round;
+    &:hover {
+      background: var(--primary-light);
     }
 
-    .circle-animation {
-      stroke-width: 3.2;
-      stroke: var(--selected-lighter);
-      animation: progress 1s ease-out forwards;
-    }
-    @keyframes progress {
-      0% {
-        stroke-dasharray: 0 100;
-      }
-    }
   }
-
 }
 
 

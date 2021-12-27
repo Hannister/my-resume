@@ -1,9 +1,19 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  HostListener,
+  OnDestroy,
+  OnInit,
+  Renderer2,
+  ViewChild, ViewChildren
+} from '@angular/core';
 import {TrainService} from "./train.service";
 import {Station} from "./models/station";
 import {transform, transform2} from "./train-animation";
 import {Subscription} from "rxjs";
 import {Platform} from "./models/platform";
+import {ViewportScroller} from "@angular/common";
 
 @Component({
   selector: 'app-train',
@@ -30,9 +40,10 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
 
+
   constructor(private trainService: TrainService,
               private renderer: Renderer2,
-              private elem: ElementRef) { }
+              private viewportScroller: ViewportScroller) { }
 
 
   ngOnInit(): void {
@@ -48,7 +59,10 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   toNextStation(){
-    this.trainService.setIsTrainMoving('forward');
+    setTimeout( ()=>{
+      this.trainService.setIsTrainMoving('forward');
+      },350)
+
     let tempIcons =  this.trainService.trainStation.platform[9].iconsGroup;
     let tempStation = this.selectedPlatform;
     if(tempStation) {
@@ -99,12 +113,9 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
     if(this.selectedPlatform?.index ===9){
       setTimeout( ()=> {this.trainService.setFinalAnimation('toStation')},1500)
-
-    }
-    if(this.selectedPlatform?.index ===9){
       setTimeout( ()=> {this.trainService.setFinalAnimation('noMove')},1900)
-
     }
+
 
 
     this.randomNumNext -= 50;
@@ -113,7 +124,6 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
   toPreviousStation(){
 
-    this.trainService.setIsTrainMoving('backward');
     let tempStation = this.selectedPlatform;
     if(this.selectedPlatform) {
 
@@ -138,7 +148,7 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
        }else {
          setTimeout(()=>{this.renderer.setStyle(this.train.nativeElement, 'left', `${-this.allPlatformLeft+320}px`);
            this.renderer.setStyle(this.allPlatforms.nativeElement, 'left', `${this.allPlatformLeft}px`);
-           this.renderer.setStyle(this.rails.nativeElement, 'transform', `translateX(${this.randomNumBack}px)`);},500)
+           },500)
        }
 
      }
@@ -164,14 +174,18 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
         this.trainService.setFinalAnimation('noMove');
         this.iconsBackAnimation(tempStation!.index)
       },500);
-      setTimeout( ()=> {this.trainService.setStartAnimation('backAnimation')},1500)
+      setTimeout( ()=> {this.trainService.setStartAnimation('backAnimation')},1500);
+      setTimeout( ()=>{
+        this.trainService.setIsTrainMoving('backward');
+      },350)
 
     }else{
       this.iconsBackAnimation(tempStation!.index)
+      this.trainService.setIsTrainMoving('backward');
     }
 
 
-    this.randomNumBack += 50;
+    this.randomNumBack += 40;
   }
 
 
@@ -184,6 +198,8 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
     else {
       this.allPlatformLeft =  Number(getComputedStyle(this.allPlatforms.nativeElement).left.substr(0,1));
     }
+
+
   }
 
   ngOnDestroy(): void {
@@ -220,7 +236,9 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-
+  onClick(elementId: string): void {
+    this.viewportScroller.scrollToAnchor(elementId);
+  }
 
 
 }

@@ -1,0 +1,98 @@
+.languages-wrapper{
+  position: relative;
+  top: 30px;
+}
+
+.click-on-lang{
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  position: relative;
+  top: 10px;
+
+  &:after{
+    content: "";
+    height: 10px;
+    width: 280px;
+    background: var(--background-default);
+    position: absolute;
+    z-index: -1;
+    top: 22px;
+  }
+}
+
+.graph-circles{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animation-item{
+  width: 190px;
+  margin:  50px 110px;
+}
+
+.graph-text {
+  fill: var(--text-color-default);
+}
+
+
+.subtitle-lang{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 20px;
+  left: 30px;
+  font-weight: 600;
+  font-size: 26px;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  &:hover{
+    transform: scale(1.1);
+  }
+}
+
+.subtitle-lang:hover:after{
+  content: "";
+  height: 7px;
+  width: 100px;
+  background: var(--background-default);
+  position: absolute;
+  z-index: -1;
+  top: 22px;
+}
+
+
+
+.animation-graph-container {
+  height: 15rem;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  text-align: center;
+  width: 15rem;
+
+  //** circle graph **/
+  .circle-bg {
+    fill: none;
+    stroke: #4A566F;
+    stroke-width: 3;
+  }
+
+  .graph-circle {
+    fill: none;
+    stroke-linecap: round;
+  }
+
+  .circle-animation {
+    stroke-width: 3.2;
+    stroke: var(--selected-lighter);
+    animation: progress 1s ease-out forwards;
+  }
+
+  @keyframes progress {
+    0% {
+      stroke-dasharray: 0 100;
+    }
+  }
+}

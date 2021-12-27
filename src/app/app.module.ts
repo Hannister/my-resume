@@ -14,6 +14,10 @@ import { IllustrationAndBubbleComponent } from './train/illustration-and-bubble/
 import { SubTitlesComponent } from './train/sub-titles/sub-titles.component';
 import { PlatformComponent } from './train/platform/platform.component';
 import { TrainIllustrationComponent } from './train/train-illustration/train-illustration.component';
+import { ContactComponent } from './train/contact/contact.component';
+import { LanguagesComponent } from './train/languages/languages.component';
+import { ThankYouComponent } from './train/thank-you/thank-you.component';
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -23,18 +27,22 @@ import { TrainIllustrationComponent } from './train/train-illustration/train-ill
     IllustrationAndBubbleComponent,
     SubTitlesComponent,
     PlatformComponent,
-    TrainIllustrationComponent
+    TrainIllustrationComponent,
+    ContactComponent,
+    LanguagesComponent,
+    ThankYouComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatSliderModule,
-    MatCardModule,
-    MatProgressSpinnerModule,
-    MatRadioModule,
-    FormsModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatSliderModule,
+        MatCardModule,
+        MatProgressSpinnerModule,
+        MatRadioModule,
+        FormsModule,
+        MatIconModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
