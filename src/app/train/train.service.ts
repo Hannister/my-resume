@@ -134,11 +134,7 @@ export class TrainService {
       },
       {title: '2010-2015',
         subTitle: 'HELD - Branch Manager, Graphic Designer & Photographer',
-        description: 'As part of my employment in Held \n' +
-          'I was responsible for the whole \n' +
-          'store operation including graphic \n' +
-          'design, digital development and \n' +
-          'printing on products.',
+        description: 'Held is a chain of shops that offers all types of printing solutions ,such as digital photo developing,  printing on products, printing on canvases, glass and more. As part of my employment in Held I was responsible for the whole store operation including graphic design, digital photo development and printing on products. I was promoted to be the brunch manager and my responsibilities  was to hire new employees and teach them to use the store machines, the programs we use to design client\'s products, the store protocols and more. Also as branch manager I was responsible to do the employees work schedule and to help the employees when they had problems with customers or with their peers.',
         type: 'two',
         index: 2,
         scr:'/assets/double.png',
@@ -148,9 +144,7 @@ export class TrainService {
       },
       {title: '2014-2015',
         subTitle: 'Graphic Design Diploma at Shenkar College of  Engineering, Design and Art',
-        description: 'Shenkar College of \n' +
-          'Engineering, Design \n' +
-          'and Art',
+        description: 'In my studies at Shenkar College of  Engineering, Design and Art I learned the fundamentals of graphic design, understanding the graphic expression, learned the history of graphic design, got the ability to translate design ideas and develop creativity, learned the knowledge of typography and the history of writing, photography, learned the most advanced and required graphic software in the industry,  i got extensive knowledge and experience in branding design, book, posters, and packaging and much more.',
         type: 'one',
         index: 3,
         scr:'/assets/single.png',
@@ -160,11 +154,7 @@ export class TrainService {
       },
       {title: '2015-2017',
         subTitle: 'Tzevet Aphacot - Graphic Designer',
-        description: 'Designer in a studio that \n' +
-          'specializes in print design: \n' +
-          'branding, designing books, \n' +
-          'catalogs and posters, \n' +
-          'advertising and more.',
+        description: 'Tzevet Aphacot is a studio that specializes in print design. I was a designer there and I worked on many projects such as branding new companies or rebranding existed companies, designing book covers, designing from scratch catalogs and posters for big companies such as “ארגון העובדים” and ‘Sothys’ an international care products company and much more.',
         type: 'two',
         index: 4,
         scr:'/assets/double.png',
@@ -175,13 +165,7 @@ export class TrainService {
       },
       {title: '2017-2018',
         subTitle: 'Capital Unit - Web Designer',
-        description: 'Designed and updated \n' +
-          'websites, collaborated with \n' +
-          'the marketing department \n' +
-          'on a range of campaigns \n' +
-          '(landing pages, mailers and \n' +
-          'banners). designed for social \n' +
-          'networks and office events',
+        description: 'At Capital Unit I designed and updated websites and landing pages, collaborated with the marketing department on a range of campaigns that includes landing pages, mailers and banners. I designed various social networks campaigns  and I was responsible for all the graphic design within the company, such as posters, flyers, prints for company events, and more.',
         type: 'one',
         index: 5,
         scr:'/assets/single.png',
@@ -191,13 +175,7 @@ export class TrainService {
       },
       {title: '2018-2019',
         subTitle: 'Business Wizard - Web Designer & Web Developer',
-        description: 'Designed and updated \n' +
-          'websites, collaborated with \n' +
-          'the marketing department \n' +
-          'on a range of campaigns \n' +
-          '(landing pages, mailers and \n' +
-          'banners). designed for social \n' +
-          'networks and office events',
+        description: 'Business Wizard was a marketing company that had small to medium-sized customers. As part of my position at Business Wizard I managed the studio, led the design decisions, created, maintained and updated websites and landing pages hosted on Unbounce with custom scripts and custom design. I learned and used HTML, CSS and JavaScript In order to provide features and designs that Unbounce couldn\'t provide for the clients needs.',
         type: 'two',
         index: 6,
         scr:'/assets/double.png',
@@ -209,10 +187,7 @@ export class TrainService {
       },
       {title: '2019-2020',
         subTitle: 'Freelance - Web Designer & Web Developer',
-        description: 'Various graphic \n' +
-          'design work \n' +
-          'tailored to \n' +
-          'clients’ needs',
+        description: 'As a freelance designer and developer I worked with various clients on developing and designing websites and landing pages with Angular (8+) from scratch using libraries such as Bootstrap and Angular Material to build and design custom components. For storing Data I used cloud firestore and firebase for hosting. Also I developed and designed static landing pages with HTML, CSS, JavaScript (vanilla js) and  jQuery. As a designer I did various graphic design work tailored to client’s needs.',
         type: 'two',
         index: 7,
         scr:'/assets/double.png',
@@ -224,10 +199,7 @@ export class TrainService {
       },
       {title: '2019-2021',
         subTitle: 'Volunteer in she codes - Web course Manager ',
-        description: 'Various graphic \n' +
-          'design work \n' +
-          'tailored to \n' +
-          'clients’ needs',
+        description: 'Manager and instructor in WEB course which includes HTML, CSS, JavaScript and jQuery. I was a student at She codes learning HTML, CSS & JS. After finishing the course I became a teacher of the course and after a short time I was promoted to course manager. As part of managing and teaching students the basics of HTML, CSS & JS I was required to master as much as possible the languages and help students understand them, Debug a lot of code and teach them how to improve their code.',
         type: 'one',
         index: 8,
         scr:'/assets/single.png',
@@ -238,13 +210,7 @@ export class TrainService {
       },
       {title: '2020 - current',
         subTitle: 'SkillBee - Front End Developer & main Designer ',
-        description: 'Designed and updated \n' +
-          'websites, collaborated with \n' +
-          'the marketing department \n' +
-          'on a range of campaigns \n' +
-          '(landing pages, mailers and \n' +
-          'banners). designed for social \n' +
-          'networks and office events',
+        description: 'SkillBee is a course creating platform that helps teachers to create, manage and sell their courses. As part of my position at SkillBee I was responsible for the FrontEnd development, design and UI\\UX of the platform from the grounds up. We used Angular 12 as the main Framework for the FrontEnd, Python and fastAPI as the backend and MongoDB as the database as well as Firebase for its RealtimeDB and Authentication. GitHub was used as the Source Control. I was creating, improving, designing and implementing different types of Components, Services and Directives while heavily relying on RxJS for Data state management and Data Sharing between those elements. To Share Data between different components when EventListeners and Inputs were not enough, I used services with Observables, Subjects, Behavioral Subjects and functions. Angular Material and PrimeNG were the main libraries I used to design the components and made them more interactive with Animations, Custom Themes, SCSS, HTML and Typescript. To manage user data I used HTTP requests to an API (FastAPI) endpoint which was validating the request and storing it to MongoDB. Firebase was used for authentication and realtime data sharing between users like chats and realtime updates.',
         type: 'three',
         index: 9,
         scr:'/assets/three.png',
