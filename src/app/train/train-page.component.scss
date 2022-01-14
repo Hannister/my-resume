@@ -5,22 +5,22 @@
 }
 .page-title{
   text-align: center;
-  margin-bottom: 0;
+  margin-bottom: 55px;
   margin-top: 75px;
 }
 
 .illustration-and-bubble{
-  transform: scale(0.85);
-  max-height: 425px;
+  height: 308px;
+  width: 100%;
+  position: relative;
 }
 
 .train-buttons{
   display: flex;
   justify-content: center;
   position: relative;
-  top: -80px;
-  left: 15px;
   transform:scale(1.2);
+  top: -10px;
 
   .btn-control {
     display: inline-block;
@@ -115,7 +115,7 @@
 }
 
 .train-station{
-  margin:   150px 200px 0;
+  margin:   220px 200px 0;
   position: relative;
 
   .train-rails {

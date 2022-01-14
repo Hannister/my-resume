@@ -1,8 +1,8 @@
 <div class="section-container">
-  <img class="my-illustration" src="assets/my-illustration-with-border.png">
+  <div class="my-illustration"></div>
   <div class="talk-bubble">
-    <p *ngIf="selectedStation" class="bubble-text">
-      {{selectedStation.description}}
-    </p>
+   <div class="bubble-text">
+     <p *ngIf="selectedStation">{{selectedStation.description}}</p>
+   </div>
   </div>
 </div>

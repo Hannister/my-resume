@@ -4,10 +4,10 @@
     <app-illustration-and-bubble></app-illustration-and-bubble>
   </div>
   <div class="train-buttons">
-    <p class="button-text back-btn-text" (click)="toPreviousStation()">Back</p>
-    <button class="previous-button btn-control" (click)="toPreviousStation()" ><</button>
-    <p class="button-text next-btn-text"  (click)="toNextStation()">Next</p>
-    <button class="next-button btn-control" (click)="toNextStation()">></button>
+    <p class="button-text back-btn-text" (click)="canGoToStation?toPreviousStation():''" >Back</p>
+    <button class="previous-button btn-control" (click)="canGoToStation?toPreviousStation():''" ><</button>
+    <p class="button-text next-btn-text"  (click)="canGoToStation?toNextStation():''" disabled="canGoToStation">Next</p>
+    <button class="next-button btn-control" (click)="canGoToStation?toNextStation():''" >></button>
 
   </div>
   <div class="train-station">

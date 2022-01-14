@@ -2,11 +2,10 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  HostListener,
   OnDestroy,
   OnInit,
   Renderer2,
-  ViewChild, ViewChildren
+  ViewChild,
 } from '@angular/core';
 import {TrainService} from "./train.service";
 import {Station} from "./models/station";
@@ -29,6 +28,8 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
   trainStation!: Station;
   selectedPlatform!: Platform|null;
   selectedPlatformSub!: Subscription;
+
+  canGoToStation: boolean = true;
 
   allPlatformLeft =  0;
   randomNumNext: number = -50;
@@ -59,13 +60,20 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   toNextStation(){
+  let tempStation = this.selectedPlatform;
+
+  this.canGoToStation = false;
+
+    setTimeout( ()=>{
+        this.canGoToStation = true; }
+      , 1400)
+
     setTimeout( ()=>{
       this.trainService.setIsTrainMoving('forward');
-      },350)
+    },350)
 
-    let tempIcons =  this.trainService.trainStation.platform[9].iconsGroup;
-    let tempStation = this.selectedPlatform;
-    if(tempStation) {
+
+    if(tempStation && tempStation!.index !== 10) {
 
       setTimeout( ()=>{
         this.trainService.setStartAnimation('nextAnimation');
@@ -94,6 +102,7 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
           this.trainService.setSelectedStation(this.trainStation.platform[tempStation!.index-1])
         }
       },400);
+
     }
 
     setTimeout( ()=>{
@@ -120,12 +129,24 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.randomNumNext -= 50;
 
+
   }
 
   toPreviousStation(){
 
     let tempStation = this.selectedPlatform;
-    if(this.selectedPlatform) {
+    this.canGoToStation = false;
+
+    setTimeout( ()=>{
+        this.canGoToStation = true; }
+      , 1200)
+
+    this.canGoToStation = false;
+    setTimeout( ()=>{
+        this.canGoToStation = true; }
+      , 1200)
+
+    if(this.selectedPlatform && tempStation!.index !== 1) {
 
       // icon jump animation
       setTimeout( ()=>{

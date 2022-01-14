@@ -1,9 +1,11 @@
-import {ElementRef, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Station} from "./models/station";
 import {Platform} from "./models/platform";
 import {Train} from "./models/train";
 import {Icon} from "./models/icon";
 import {BehaviorSubject} from "rxjs";
+import { collection, addDoc } from "firebase/firestore";
+
 
 @Injectable({providedIn: 'root'})
 export class TrainService {
@@ -15,13 +17,17 @@ export class TrainService {
   train!: Train ;
   IconList!: Icon[] ;
 
+
+
   isTrainMoving: BehaviorSubject<string> = new BehaviorSubject<string>('noMove')
   selectedStation: BehaviorSubject<Platform | null>  = new BehaviorSubject<Platform | null>(null)
 
   startAnimation: BehaviorSubject<string> = new BehaviorSubject<string>('');
   isFinalStationAnimation: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
+  getIconListDB(){
 
+  }
 
   getIconList() : Icon[]{
     return this.IconList = [
@@ -210,7 +216,7 @@ export class TrainService {
       },
       {title: '2020 - current',
         subTitle: 'SkillBee - Front End Developer & main Designer ',
-        description: 'SkillBee is a course creating platform that helps teachers to create, manage and sell their courses. As part of my position at SkillBee I was responsible for the FrontEnd development, design and UI\\UX of the platform from the grounds up. We used Angular 12 as the main Framework for the FrontEnd, Python and fastAPI as the backend and MongoDB as the database as well as Firebase for its RealtimeDB and Authentication. GitHub was used as the Source Control. I was creating, improving, designing and implementing different types of Components, Services and Directives while heavily relying on RxJS for Data state management and Data Sharing between those elements. To Share Data between different components when EventListeners and Inputs were not enough, I used services with Observables, Subjects, Behavioral Subjects and functions. Angular Material and PrimeNG were the main libraries I used to design the components and made them more interactive with Animations, Custom Themes, SCSS, HTML and Typescript. To manage user data I used HTTP requests to an API (FastAPI) endpoint which was validating the request and storing it to MongoDB. Firebase was used for authentication and realtime data sharing between users like chats and realtime updates.',
+        description: 'SkillBee is a course creating platform that helps teachers to create, manage and sell their courses. As part of my position at SkillBee I was responsible for the FrontEnd development, design and UI\\UX from the grounds up. We used Angular 12 as the Framework for the FrontEnd, Python and fastAPI as the backend and MongoDB as the database as well as Firebase for its RealtimeDB and Authentication. GitHub was used as the Source Control. I was creating, improving, designing and implementing different types of Components, Services and Directives while heavily relying on RxJS for Data state management and Data Sharing between elements. To Share Data between different components when EventListeners and Inputs were not enough, I used services with Observables, Subjects, Behavioral Subjects and functions. Angular Material and PrimeNG were the libraries I used to design the components and made them more interactive with Animations, Custom Themes, SCSS, HTML and Typescript. To manage user data I used HTTP requests to an API (FastAPI) which was validating the request and storing it to MongoDB. Firebase was used for authentication and realtime data sharing between users like chats and realtime updates.',
         type: 'three',
         index: 9,
         scr:'/assets/three.png',
