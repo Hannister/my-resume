@@ -13,6 +13,7 @@ import {transform, transform2} from "./train-animation";
 import {Subscription} from "rxjs";
 import {Platform} from "./models/platform";
 import {ViewportScroller} from "@angular/common";
+import {FirebaseHandleService} from "../firebase-handle.service";
 
 @Component({
   selector: 'app-train',
@@ -44,7 +45,8 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(private trainService: TrainService,
               private renderer: Renderer2,
-              private viewportScroller: ViewportScroller) { }
+              private viewportScroller: ViewportScroller,
+              private  DB: FirebaseHandleService) { }
 
 
   ngOnInit(): void {
@@ -54,6 +56,10 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
     this.selectedPlatformSub = this.trainService.selectedStation.subscribe( data => {
       this.selectedPlatform = data;
     })
+
+
+    this.DB.setTrainStationIcons();
+    this.DB.setTrainStationPlatform();
   }
 
 

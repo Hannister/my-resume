@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "resumesite-hanny": {
+      "hosting": {
+        "my-cv-site": [
+          "resumesite-hanny"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "resumesite-hanny"
+  }
+}

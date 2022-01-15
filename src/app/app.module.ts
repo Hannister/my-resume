@@ -18,6 +18,15 @@ import { ContactComponent } from './train/contact/contact.component';
 import { LanguagesComponent } from './train/languages/languages.component';
 import { ThankYouComponent } from './train/thank-you/thank-you.component';
 import {MatIconModule} from "@angular/material/icon";
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideFunctions,getFunctions } from '@angular/fire/functions';
+import { providePerformance,getPerformance } from '@angular/fire/performance';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import {AngularFireModule} from "@angular/fire/compat";
 
 @NgModule({
   declarations: [
@@ -42,8 +51,14 @@ import {MatIconModule} from "@angular/material/icon";
         MatRadioModule,
         FormsModule,
         MatIconModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        provideFirestore(() => getFirestore()),
+        providePerformance(() => getPerformance()),
+        provideStorage(() => getStorage()),
     ],
-  providers: [],
+  providers: [
+    ScreenTrackingService,UserTrackingService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

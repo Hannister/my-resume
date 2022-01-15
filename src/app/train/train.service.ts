@@ -4,13 +4,14 @@ import {Platform} from "./models/platform";
 import {Train} from "./models/train";
 import {Icon} from "./models/icon";
 import {BehaviorSubject} from "rxjs";
-import { collection, addDoc } from "firebase/firestore";
+import {FirebaseHandleService} from "../firebase-handle.service";
 
 
 @Injectable({providedIn: 'root'})
 export class TrainService {
 
-  constructor() { }
+
+  constructor( private firebase: FirebaseHandleService) {}
 
   trainStation!: Station ;
   platforms!: Platform[] ;
@@ -18,16 +19,11 @@ export class TrainService {
   IconList!: Icon[] ;
 
 
-
   isTrainMoving: BehaviorSubject<string> = new BehaviorSubject<string>('noMove')
   selectedStation: BehaviorSubject<Platform | null>  = new BehaviorSubject<Platform | null>(null)
 
   startAnimation: BehaviorSubject<string> = new BehaviorSubject<string>('');
   isFinalStationAnimation: BehaviorSubject<string> = new BehaviorSubject<string>('');
-
-  getIconListDB(){
-
-  }
 
   getIconList() : Icon[]{
     return this.IconList = [
@@ -40,10 +36,10 @@ export class TrainService {
         index: 1,
         visible: true},
       {name: 'graphic-design',
-        src: '/assets/icons/graphic-design.png',
+          src: '/assets/icons/graphic-design.png',
         index: 1,
         visible: true},
-      {name: 'posterDesign',
+      {name: 'poster',
         src: '/assets/icons/poster.png',
         index: 2,
         visible: true},
