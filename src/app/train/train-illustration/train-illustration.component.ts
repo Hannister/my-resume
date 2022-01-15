@@ -3,6 +3,7 @@ import {Subscription} from "rxjs";
 import {TrainService} from "../train.service";
 import {Train} from "../models/train";
 import {Platform} from "../models/platform";
+import {FirebaseHandleService} from "../../firebase-handle.service";
 
 @Component({
   selector: 'app-train-illustration',
@@ -23,7 +24,8 @@ export class TrainIllustrationComponent implements OnInit, OnDestroy {
   finalStation: boolean = false;
 
   constructor(private trainService: TrainService,
-              private renderer: Renderer2) { }
+              private renderer: Renderer2,
+              private DB: FirebaseHandleService) { }
 
   ngOnInit(): void {
     this.isTrainMovingSub = this.trainService.isTrainMoving.subscribe( data =>{
@@ -34,7 +36,7 @@ export class TrainIllustrationComponent implements OnInit, OnDestroy {
       this.isFinalStationAnimation = data;
     })
 
-    this.selectedPlatformSub = this.trainService.selectedStation.subscribe( data=> {
+    this.selectedPlatformSub = this.DB.selectedStation.subscribe( data=> {
       if (data?.index === 10){
         setTimeout( ()=>{
           this.finalStation = true;

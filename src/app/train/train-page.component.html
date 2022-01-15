@@ -1,4 +1,4 @@
-<div class="train-page-container" id="pageTop">
+<div class="train-page-container" id="pageTop" *ngIf="trainStation">
 <h2 class="page-title">Welcome To My Resume</h2>
   <div class="illustration-and-bubble">
     <app-illustration-and-bubble></app-illustration-and-bubble>
@@ -16,7 +16,7 @@
     </div>
     <div #allPlatforms class="train-platforms">
       <div #train class="train-container">
-        <app-train-illustration [train]="trainStation.train"></app-train-illustration>
+        <app-train-illustration  [train]="trainStation.train"></app-train-illustration>
       </div>
       <app-platform [platform]="trainStation.platform[0]" class="platform-container one"></app-platform>
       <app-platform [platform]="trainStation.platform[1]" class="platform-container two" ></app-platform>

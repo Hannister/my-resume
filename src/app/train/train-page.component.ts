@@ -14,6 +14,7 @@ import {Subscription} from "rxjs";
 import {Platform} from "./models/platform";
 import {ViewportScroller} from "@angular/common";
 import {FirebaseHandleService} from "../firebase-handle.service";
+import {map, take} from "rxjs/operators";
 
 @Component({
   selector: 'app-train',
@@ -27,6 +28,7 @@ import {FirebaseHandleService} from "../firebase-handle.service";
 export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
   trainStation!: Station;
+  trainStationDBSub!: Subscription;
   selectedPlatform!: Platform|null;
   selectedPlatformSub!: Subscription;
 
@@ -50,18 +52,26 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   ngOnInit(): void {
-    this.trainStation = this.trainService.getStation();
+    // this.trainStation = this.trainService.getStation();
 
 
-    this.selectedPlatformSub = this.trainService.selectedStation.subscribe( data => {
+    this.selectedPlatformSub = this.DB.selectedStation.subscribe( data => {
       this.selectedPlatform = data;
     })
 
 
     this.DB.setTrainStationIcons();
     this.DB.setTrainStationPlatform();
-  }
 
+    this.trainStationDBSub = this.DB.trainStationData.subscribe( data => {
+      if(data){
+        this.trainStation = data;
+      }
+    })
+
+
+
+  }
 
 
 
@@ -75,7 +85,10 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
       , 1400)
 
     setTimeout( ()=>{
-      this.trainService.setIsTrainMoving('forward');
+      if(tempStation!.index !== 10){
+        this.trainService.setIsTrainMoving('forward');
+
+      }
     },350)
 
 
@@ -103,9 +116,9 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
       setTimeout( ()=>{
 
         this.iconsNextAnimation(tempStation!.index);
-        this.trainService.setSelectedStation(this.trainStation.platform[tempStation!.index])
+        this.DB.setSelectedStation(this.trainStation.platform[tempStation!.index])
         if (tempStation!.index === 10) {
-          this.trainService.setSelectedStation(this.trainStation.platform[tempStation!.index-1])
+          this.DB.setSelectedStation(this.trainStation.platform[tempStation!.index-1])
         }
       },400);
 
@@ -179,9 +192,9 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
        }
 
      }
-     this.trainService.setSelectedStation(this.trainStation.platform[this.selectedPlatform!.index-2])
+     this.DB.setSelectedStation(this.trainStation.platform[this.selectedPlatform!.index-2])
       if (this.selectedPlatform!.index === 1) {
-        this.trainService.setSelectedStation(this.trainStation.platform[this.selectedPlatform!.index-1])
+        this.DB.setSelectedStation(this.trainStation.platform[this.selectedPlatform!.index-1])
       }
     }
 
@@ -206,7 +219,10 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
         this.trainService.setIsTrainMoving('backward');
       },350)
 
-    }else{
+    }else if(tempStation!.index === 1){
+      this.trainService.setIsTrainMoving('');
+    }
+    else{
       this.iconsBackAnimation(tempStation!.index)
       this.trainService.setIsTrainMoving('backward');
     }
@@ -219,18 +235,21 @@ export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   ngAfterViewInit(): void {
-    if(this.trainStation.platform[0]){
-      this.allPlatformLeft = Number(getComputedStyle(this.allPlatforms.nativeElement).left.substr(0,1)) -41;
-    }
-    else {
-      this.allPlatformLeft =  Number(getComputedStyle(this.allPlatforms.nativeElement).left.substr(0,1));
-    }
+    setTimeout(() => {
+      if(this.trainStation.platform[0]){
+        this.allPlatformLeft = Number(getComputedStyle(this.allPlatforms.nativeElement).left.substr(0,1)) -41;
+      }
+      else {
+        this.allPlatformLeft =  Number(getComputedStyle(this.allPlatforms.nativeElement).left.substr(0,1));
+      }
+    },500)
 
 
   }
 
   ngOnDestroy(): void {
     this.selectedPlatformSub.unsubscribe();
+    this.trainStationDBSub.unsubscribe();
   }
 
   iconsNextAnimation(index: number){

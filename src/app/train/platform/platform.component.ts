@@ -2,6 +2,7 @@ import {AfterViewInit, Component, Input, OnDestroy, OnInit} from '@angular/core'
 import {Platform} from "../models/platform";
 import {Subscription} from "rxjs";
 import {TrainService} from "../train.service";
+import {FirebaseHandleService} from "../../firebase-handle.service";
 
 @Component({
   selector: 'app-platform',
@@ -21,11 +22,12 @@ export class PlatformComponent implements OnInit, OnDestroy, AfterViewInit {
   isFinalStationAnimationSub!: Subscription;
 
 
-  constructor(private trainService: TrainService) { }
+  constructor(private trainService: TrainService,
+              private  DB: FirebaseHandleService) { }
 
 
   ngOnInit(): void {
-    this.selectedPlatformSub = this.trainService.selectedStation.subscribe( data =>{
+    this.selectedPlatformSub = this.DB.selectedStation.subscribe( data =>{
       this.selectedPlatform = data;
       if (this.selectedPlatform?.index==10){
         setTimeout(()=>{
