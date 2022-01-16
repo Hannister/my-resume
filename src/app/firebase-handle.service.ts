@@ -16,13 +16,11 @@ export class FirebaseHandleService {
 
   trainStationCollection!: AngularFirestoreCollection<any>;
   train_stationDB!: Observable<any[]>;
-  trainStationData: BehaviorSubject<Station|null> = new BehaviorSubject<Station|null>(null)
-  trainData: BehaviorSubject<Train|null> = new BehaviorSubject<Train|null>(null)
-  platformData: BehaviorSubject<Platform[]|null> = new BehaviorSubject<Platform[]|null>(null)
+  trainStationData: BehaviorSubject<Station|null> = new BehaviorSubject<Station|null>(null);
+  trainData: BehaviorSubject<Train|null> = new BehaviorSubject<Train|null>(null);
+  platformData: BehaviorSubject<Platform[]|null> = new BehaviorSubject<Platform[]|null>(null);
 
-  selectedStation: BehaviorSubject<Platform | null>  = new BehaviorSubject<Platform | null>(null)
-
-
+  selectedStation: BehaviorSubject<Platform | null>  = new BehaviorSubject<Platform | null>(null);
 
 
   constructor(private afs: AngularFirestore) {

@@ -9,7 +9,6 @@ import {
 } from '@angular/core';
 import {TrainService} from "./train.service";
 import {Station} from "./models/station";
-import {transform, transform2} from "./train-animation";
 import {Subscription} from "rxjs";
 import {Platform} from "./models/platform";
 import {ViewportScroller} from "@angular/common";
@@ -20,10 +19,6 @@ import {map, take} from "rxjs/operators";
   selector: 'app-train',
   templateUrl: './train-page.component.html',
   styleUrls: ['./train-page.component.scss'],
-  animations: [
-    transform,
-    transform2
-  ]
 })
 export class TrainPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
